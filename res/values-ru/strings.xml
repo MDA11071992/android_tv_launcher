@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smiletv</string>
+    <string name="action_settings">Настройки</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="app_store">Магазин</string>
+    <string name="check_your_network">Проверка сети</string>
+    <string name="clean_up_the_garbage">Очистка</string>
+    <string name="edit_app">Редактировать</string>
+    <string name="eliminate_num">Исправить</string>
+    <string name="favorite_app">Избранное</string>
+    <string name="in_clear">Очистка</string>
+    <string name="launch_app">Запуск</string>
+    <string name="home_title">Домой</string>
+    <string name="menu_search">Поиск</string>
+    <string name="menu_wallpaper">Обои</string>
+    <string name="qidong_app">Открытые</string>
+    <string name="remove_app">Удаление</string>
+    <string name="show_all_apps">Приложения</string>
+    <string name="start_clear">Сброс настроек</string>
+    <string name="update_app">Обновление</string>
+    <string name="wallpaper_instructions">Нажмите на изображение, чтобы установить обои</string>
+    <string name="start_eliminate_process">Начать очистку</string>
+    <string name="stop_timing_clear">Остановить отсчёт</string>
+    <string name="timing_clear">Отсчёт</string>
+    <string name="unit">Единиц</string>
+    <string name="surolus_memory">Свободно памяти:</string>
+</resources>
