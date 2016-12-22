@@ -1,8 +1,5 @@
 package com.droid.activitys.wifi.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
@@ -11,152 +8,138 @@ import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.WifiLock;
 import android.util.Log;
 
-/*
- * 自定义wIFI管理类
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class WiFiAdmin {
-	// wifimanager对象
+	// wifimanager
 	private WifiManager mWifiManager;
-	// wifiInfo对象
+	// wifiInfo
 	private WifiInfo mWifiInfo;
-	// 扫描出的网络连接列表
+	// The list of network connections scanned
 	private List<ScanResult> mWifiList;
-	// 网络连接列表
+	// Network Connection List
 	private List<WifiConfiguration> mWifiConfigurations;
 	private WifiLock mwifiLock;
 
 	public WiFiAdmin(Context context) {
-		// 取得wifimannager
+		// wifimannager
 		mWifiManager = (WifiManager) context
 				.getSystemService(Context.WIFI_SERVICE);
-		// 取得wifiinfo
+		// wifiinfo
 		mWifiInfo = mWifiManager.getConnectionInfo();
 		mWifiList=new ArrayList<ScanResult>();
 		mWifiConfigurations=new ArrayList<WifiConfiguration>();
 	}
 
-	// 打开WIFI
 	public void OpenWifi() {
 		if (!mWifiManager.isWifiEnabled()) {
 			mWifiManager.setWifiEnabled(true);
 		}
 	}
 
-	// 关闭WIFI
 	public void CloseWifi() {
 		if (mWifiManager.isWifiEnabled()) {
 			mWifiManager.setWifiEnabled(false);
 		}
 	}
 
-	// 得到WIFI当前状态
 	public int GetWifiState() {
 		return mWifiManager.getWifiState();
 	}
 
-	// 锁定wifilock
 	public void AcquireWifiLock() {
 		mwifiLock.acquire();
 	}
 
-	// 释放wifilock
 	public void RelaseWifiLock() {
 		if (mwifiLock.isHeld()) {
 			mwifiLock.release();
 		}
 	}
 
-	// 创建一个wifilock
 	public void CreatWifilock() {
 		mwifiLock = mWifiManager.createWifiLock("WIFILOCK");
 	}
 
-	// 得到配置好的网络
 	public List<WifiConfiguration> getConfigurations() {
 		return mWifiConfigurations;
 	}
 
-	// 指定配置好的网络进行连接
 	public void ConnectConfiguration(int index) {
-		// 输入的索引大于配置的索引则返回
+		// If the input index is greater than the configured index, it returns
 		if (index > mWifiConfigurations.size()) {
 			return;
 		}
-		// 连接到指定的网络
+		// Connect to the specified network
 		mWifiManager.enableNetwork(mWifiConfigurations.get(index).networkId,
 				true);
 	}
 
 	public void StartScan() {
 		mWifiManager.startScan();
-		// 得到扫描结果
+		// Get the scan results
 		mWifiList = mWifiManager.getScanResults();
-		// 得到配置好的网络连接
+		// Get the configured network connection
 		mWifiConfigurations = mWifiManager.getConfiguredNetworks();
 		Log.v("mWifiManager", mWifiManager+"");
 		Log.v("mWifiList", mWifiList+"");
 		Log.v("mWifiConfigurations", mWifiConfigurations+"");
-//		String [] str=new String[mWifiList.size()];
-//		String tempstring=null;
-//		for(int i=0;i<mWifiList.size();i++){
-//			tempstring=mWifiList.get(i).SSID;
-//			if(null!=mWifiInfo&&tempstring.equals(mWifiInfo.getSSID())){
-//				tempstring=tempstring+"已连接";
-//			}
-//			str[i]=tempstring;
-//		}
+		String [] str=new String[mWifiList.size()];
+		String tempstring=null;
+		for(int i=0;i<mWifiList.size();i++){
+			tempstring=mWifiList.get(i).SSID;
+			if(null!=mWifiInfo&&tempstring.equals(mWifiInfo.getSSID())){
+				tempstring=tempstring+"Подключено";
+			}
+			str[i]=tempstring;
+		}
 	}
 	public void getWifiConnectInfo(){
 		mWifiInfo=mWifiManager.getConnectionInfo();
 	}
-	// 得到网络列表
+
 	public List<ScanResult> GetWifilist() {
 		return mWifiList;
 	}
 
-	// 查看扫描结果
 	public StringBuilder CheckupScan() {
 		StringBuilder stringBuilder = new StringBuilder();
 		for (int i = 0; i < mWifiList.size(); i++) {
 			stringBuilder
 					.append("Index_" + new Integer(i + 1).toString() + ":");
-			// 将Scanresult转换成一个字符串包
-			// 其中包括:BSSID SSID capabilities frequency level
+			// Convert Scanresult into a string package
+			// These include: BSSID SSID capabilities frequency level
 			stringBuilder.append(mWifiList.get(i).toString());
 			stringBuilder.append("/n");
 		}
 		return stringBuilder;
 	}
 
-	// 得到MAC地址
 	public String GetMacAdress() {
 		return (mWifiInfo == null) ? "NULL" : mWifiInfo.getMacAddress();
 	}
-	//得到SSID
+
 	public String GetSSID(){
 		return (mWifiInfo==null)?"NULL":mWifiInfo.getSSID();
 	}
-	// 得到接入点的BSSID
+
 	public String GetBSSID() {
 		return (mWifiInfo == null) ? "NULL" : mWifiInfo.getBSSID();
 	}
 
-	// 得到ip地址
 	public int GetIpAdress() {
 		return (mWifiInfo == null) ? 0 : mWifiInfo.getIpAddress();
 	}
 
-	// 得打连接的ID
 	public int GetNetworkID() {
 		return (mWifiInfo == null) ? 0 : mWifiInfo.getNetworkId();
 	}
 
-	// 得到wifiinfo的所有信息包
 	public String GetWifiinfo() {
 		return (mWifiInfo == null) ? "NULL" : mWifiInfo.toString();
 	}
 
-	// 添加一个网络并连接
 	public int AddNetwork(WifiConfiguration configuration) {
 		int configurationId = mWifiManager.addNetwork(configuration);
 		boolean b = mWifiManager.enableNetwork(configurationId, true);
@@ -165,7 +148,6 @@ public class WiFiAdmin {
 		return configurationId;
 	}
 
-	// 断开指定ID的网络
 	public void disconnectWifi(int networkid) {
 		mWifiManager.disableNetwork(networkid);
 		mWifiManager.disconnect();
@@ -184,14 +166,14 @@ public class WiFiAdmin {
 		if (tempConfiguration != null) {
 			mWifiManager.removeNetwork(tempConfiguration.networkId);
 		}
-		// WIFICIPHER_NOPASS
+
 		if (Type == 1) {
 			configuration.wepKeys[0] = "";
 			configuration.allowedKeyManagement
 					.set(WifiConfiguration.KeyMgmt.NONE);
 			configuration.wepTxKeyIndex = 0;
 		}
-		// WIFICIPHER_WEP
+
 		if (Type == 2) {
 			configuration.hiddenSSID = true;
 			configuration.wepKeys[0] = "\"" + Password + "\"";
@@ -209,7 +191,7 @@ public class WiFiAdmin {
 					.set(WifiConfiguration.KeyMgmt.NONE);
 			configuration.wepTxKeyIndex = 0;
 		}
-		// WIFICIPHER_WPA
+
 		if (Type == 3) {
 			configuration.preSharedKey = "\"" + Password + "\"";
 			configuration.hiddenSSID = true;
@@ -229,7 +211,7 @@ public class WiFiAdmin {
 		}
 		return configuration;
 	}
-	//判断wifi是否存在
+
 	private static WifiConfiguration IsExits(String SSID, WifiManager manager) {
 		List<WifiConfiguration> exitsConfigurations = manager
 				.getConfiguredNetworks();
@@ -248,7 +230,6 @@ public class WiFiAdmin {
 	  {
 	    return mWifiManager.isWifiEnabled();
 	  }
-//转换IP地址
 
 	 public String GetIntIp()
 	 {

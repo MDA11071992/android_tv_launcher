@@ -1,5 +1,6 @@
 package com.droid.activitys.setting;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -9,29 +10,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-
 import com.droid.R;
 import com.droid.activitys.WoDouGameBaseFragment;
 import com.droid.activitys.app.AppAutoRun;
 import com.droid.activitys.app.AppUninstall;
+import com.droid.activitys.eliminateprocess.EliminateMainActivity;
+import com.droid.activitys.garbageclear.GarbageClear;
+import com.droid.activitys.speedtest.SpeedTestActivity;
 import com.droid.application.ClientApplication;
 import com.droid.cache.ImageCache;
 import com.droid.cache.loader.ImageFetcher;
 import com.droid.cache.loader.ImageWorker;
-import com.droid.activitys.eliminateprocess.EliminateMainActivity;
-import com.droid.activitys.garbageclear.GarbageClear;
-import com.droid.activitys.speedtest.SpeedTestActivity;
+import com.droid.views.FocusedRelativeLayout;
 
 import java.util.List;
 
-/**
- * Created by Administrator on 2014/9/9.
- */
 public class SettingFragment extends WoDouGameBaseFragment implements
         View.OnClickListener {
     private ImageWorker mImageLoader;
-    private ImageButton Setting_Clean;// 垃圾清理
-    private ImageButton Setting_Accelerate;// 一键加速
+    private ImageButton Setting_Clean;// Garbage clean - up
+    private ImageButton Setting_Accelerate;// A key to accelerate
     private ImageButton appUninstall;
     private ImageButton setNet;
     private ImageButton setMore;
@@ -40,14 +38,12 @@ public class SettingFragment extends WoDouGameBaseFragment implements
     private ImageButton fileManage;
     private ImageButton about;
     private ImageButton autoRun;
-    private View view;// 视图
+    private View view;
     private Intent JumpIntent;
     private static final boolean d = ClientApplication.debug;
     private Context context;
 
-    /**
-     * 用来存放
-     */
+
     private List<ContentValues> datas;
 
     @Override
@@ -78,14 +74,14 @@ public class SettingFragment extends WoDouGameBaseFragment implements
 
     private void initView(View view) {
 
-//        FocusedRelativeLayout focus = (FocusedRelativeLayout) view
-//                .findViewById(R.id.setting_focus_rl);
-//        focus.setFocusResId(R.drawable.focus_bg);
-//        focus.setFocusShadowResId(R.drawable.focus_shadow);
-//        focus.setFocusable(true);
-//        focus.setFocusableInTouchMode(true);
-//        focus.requestFocus();
-//        focus.requestFocusFromTouch();
+        @SuppressLint("WrongViewCast") FocusedRelativeLayout focus = (FocusedRelativeLayout)
+                view.findViewById(R.id.setting_focus_rl);
+        focus.setFocusResId(R.drawable.focus_bg);
+        focus.setFocusShadowResId(R.drawable.focus_shadow);
+        focus.setFocusable(true);
+        focus.setFocusableInTouchMode(true);
+        focus.requestFocus();
+        focus.requestFocusFromTouch();
 
         appUninstall = (ImageButton) view.findViewById(R.id.setting_uninstall);
         setNet = (ImageButton) view.findViewById(R.id.setting_net);

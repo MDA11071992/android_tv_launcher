@@ -66,11 +66,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             switch (msg.what) {
                 case 0:
                     break;
-                case 1://异常处理
+                case 1:
                     initFragment("");
-                    showShortToast("图片加载失败！");
+                    showShortToast("Изображение не загружается!");
                     break;
-                case 2://图片数据解析
+                case 2:
                     Bundle b = msg.getData();
                     String json = b.getString("mResponseJson");
                     try {
@@ -103,9 +103,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 new IntentFilter("com.droid.updateUI"));
     }
 
-    /**
-     * 程序安装更新
-     */
+
     private void installApk() {
         boolean installFlag = false;
         Log.d(TAG, "--installFlag1--" + installFlag);
@@ -132,9 +130,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    /**
-     * 更新UI receiver
-     */
+
     private BroadcastReceiver updateUI = new BroadcastReceiver() {
 
         @Override
@@ -145,11 +141,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     };
 
     private void initData() {
-        // 打开数据库
         openDataBase();
         if (isThereHaveUrlDataInDB()) {
             String data = getUrlDataFromDB();
-            //将数据发送到Fragment
             initFragment(data);
             getUrlDataFromNetFlow();
         } else {
@@ -229,30 +223,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    /**
-     * 初始化Fragment
-     */
+
     private void initFragment(String url_data) {
-        fragments.clear();//清空
+        fragments.clear();
         int count = PAGE_NUMBER;
 
         FragmentManager manager;
         FragmentTransaction transaction;
 
-		/* 获取manager */
         manager = this.getSupportFragmentManager();
-        /* 创建事物 */
         transaction = manager.beginTransaction();
 
         LocalServiceFragment interactTV = new LocalServiceFragment();
         SettingFragment setting = new SettingFragment();
         AppFragment app = new AppFragment();
 
-         /*创建一个Bundle用来存储数据，传递到Fragment中*/
         Bundle bundle = new Bundle();
-        /*往bundle中添加数据*/
         bundle.putString("url_data", url_data);
-        /*把数据设置到Fragment中*/
 
         interactTV.setArguments(bundle);
 
@@ -268,9 +255,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mViewPager.setCurrentItem(0);
     }
 
-    /**
-     * ViewPager切换监听方法
-     */
+
     public ViewPager.OnPageChangeListener pageListener = new ViewPager.OnPageChangeListener() {
 
         @Override
@@ -307,9 +292,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     };
 
-    /**
-     * 从网上获取Url数据流
-     */
+
     private void getUrlDataFromNetFlow() {
         if (NetWorkUtil.isNetWorkConnected(context)) {
             //获取数据
@@ -327,13 +310,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         return a;
     }
 
-    /* 打开数据库，创建表 */
     private void openDataBase() {
-        mSQLiteDataBase = this.openOrCreateDatabase("myapp.db",
-                MODE_PRIVATE, null);
+        mSQLiteDataBase = this.openOrCreateDatabase("myapp.db", MODE_PRIVATE, null);
         String CREATE_TABLE = "create table if not exists my_url_data (_id INTEGER PRIMARY KEY,url_data TEXT);";
         mSQLiteDataBase.execSQL(CREATE_TABLE);
-        // 插入一条_id 为 1 的空数据
         String INSERT_ONE_DATA = "";
     }
 
@@ -343,13 +323,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mSQLiteDataBase.close();
     }
 
-    /**
-     * 顶部焦点获取
-     *
-     * @param keyCode
-     * @param event
-     * @return
-     */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         boolean focusFlag = false;
@@ -403,10 +376,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     .getParcelableExtra(ConnectivityManager.EXTRA_NETWORK_INFO);
 
             if (currentNetworkInfo.isConnected()) {
-                //连接网络更新数据
                 installApk();
             } else {
-                showShortToast("网络未连接");
+                showShortToast("Нет подключения к сети");
                 ClientApplication.netFlag = false;
             }
         }

@@ -21,10 +21,7 @@ import com.droid.bean.AppBean;
 
 import java.util.List;
 
-/**
- * @author Droid
- * 应用卸载类
- */
+
 public class AppUninstall extends Activity implements View.OnClickListener {
 
     private static final String TAG = "UPDATE";
@@ -108,7 +105,7 @@ public class AppUninstall extends Activity implements View.OnClickListener {
 
         @Override
         public void onReceive(Context context, Intent intent){
-            //接收安装广播
+            //Receive the installation broadcast
             if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
 
                 String packageName = intent.getDataString();
@@ -123,7 +120,7 @@ public class AppUninstall extends Activity implements View.OnClickListener {
 
                 mAppList.add(localAppBean);
             }
-            //接收卸载广播
+            //Receive the unloading broadcast
             if (intent.getAction().equals("android.intent.action.PACKAGE_REMOVED")) {
                 String receiverName = intent.getDataString();
                 receiverName = receiverName.substring(8);

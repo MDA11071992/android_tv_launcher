@@ -2,9 +2,7 @@ package com.droid.activitys;
 
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
-/**
- * @author Droid
- */
+
 public abstract class BaseActivity extends FragmentActivity {
 
 	protected void showLongToast(String pMsg) {

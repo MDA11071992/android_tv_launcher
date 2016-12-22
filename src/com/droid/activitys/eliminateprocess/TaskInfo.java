@@ -9,7 +9,7 @@ public class TaskInfo {
 	private int memory;
 	private Boolean isCheck;
 	private String packageName;
-	private Boolean isSystemProcess;// 是否为系统进程
+	private Boolean isSystemProcess;// Whether the system process
 
 	public String getName() {
 		return name;

@@ -50,7 +50,7 @@ public class GetAppList {
             PackageInfo mPackageInfo;
             try {
                 mPackageInfo = mContext.getPackageManager().getPackageInfo(pkgName, 0);
-                if ((mPackageInfo.applicationInfo.flags & mPackageInfo.applicationInfo.FLAG_SYSTEM) > 0) {//系统预装
+                if ((mPackageInfo.applicationInfo.flags & mPackageInfo.applicationInfo.FLAG_SYSTEM) > 0) {//System pre-installed
                     localAppBean.setSysApp(true);
                 }
             } catch (NameNotFoundException e) {
@@ -59,7 +59,7 @@ public class GetAppList {
 
             String noSeeApk = localAppBean.getPackageName();
 
-            // 屏蔽自己 、芒果 、tcl新
+            // Shield yourself, mango, tcl new
             if (!noSeeApk.equals("com.cqsmiletv") && !noSeeApk.endsWith("com.starcor.hunan") && !noSeeApk.endsWith("com.tcl.matrix.tventrance")) {
                 localArrayList.add(localAppBean);
             }
@@ -91,7 +91,7 @@ public class GetAppList {
             PackageInfo mPackageInfo;
             try {
                 mPackageInfo = mContext.getPackageManager().getPackageInfo(pkgName, 0);
-                if ((mPackageInfo.applicationInfo.flags & mPackageInfo.applicationInfo.FLAG_SYSTEM) > 0) {//系统预装
+                if ((mPackageInfo.applicationInfo.flags & mPackageInfo.applicationInfo.FLAG_SYSTEM) > 0) {//System pre-installed
                     localAppBean.setSysApp(true);
                 } else {
                     localArrayList.add(localAppBean);

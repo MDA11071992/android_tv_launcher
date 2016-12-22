@@ -28,11 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * @author Droid
- * 蓝牙管理
- */
-
 public class Bluetooth extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "UPDATE";
@@ -108,12 +103,11 @@ public class Bluetooth extends BaseActivity implements View.OnClickListener {
         }
 
         IntentFilter intent = new IntentFilter();
-        // 用BroadcastReceiver来取得搜索结果
         intent.addAction(BluetoothDevice.ACTION_FOUND);
-        //每当扫描模式变化的时候，应用程序可以为通过ACTION_SCAN_MODE_CHANGED值来监听全局的消息通知。
-        // 比如，当设备停止被搜寻以后，该消息可以被系统通知給应用程序。
+        // The application can listen for global message notifications with the ACTION_SCAN_MODE_CHANGED value whenever the scan mode changes.
+        // For example, when the device stops searching, the message can be notified to the application by the system.
         intent.addAction(BluetoothAdapter.ACTION_SCAN_MODE_CHANGED);
-        //每当蓝牙模块被打开或者关闭，应用程序可以为通过ACTION_STATE_CHANGED值来监听全局的消息通知。
+        //When the Bluetooth module is turned on or off, the application can listen for global message notifications with the ACTION_STATE_CHANGED value.
         intent.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
         intent.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
         registerReceiver(searchReceiver, intent);
@@ -151,7 +145,7 @@ public class Bluetooth extends BaseActivity implements View.OnClickListener {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 BluetoothDevice device = (BluetoothDevice) list.get(position).get("device");
                 device.createBond();
-                showShortToast("正在配对..");
+                showShortToast("Сопряжение...");
             }
         });
 
@@ -203,7 +197,7 @@ public class Bluetooth extends BaseActivity implements View.OnClickListener {
                             startActivity(intent);
                         }
                     } else {
-                        showShortToast("蓝牙不可用！");
+                        showShortToast("Bluetooth не доступен!");
                     }
                     openIV.setBackgroundResource(R.drawable.switch_on);
                     searchIV.setVisibility(View.VISIBLE);
@@ -248,18 +242,18 @@ public class Bluetooth extends BaseActivity implements View.OnClickListener {
                     }
                 } else if (pairPosition == -2) {
                     try {
-                        showShortToast("正在取消配对..");
+                        showShortToast("Отмена сопряжения...");
                         boolean b = Tools.removeBond(pairDevice.getClass(), pairDevice);
                         if (b) {
                             Map<String, Object> map = new HashMap<String, Object>();
                             map.put("name", pairDevice.getName());
                             map.put("type", pairDevice.getBluetoothClass().getDeviceClass());
                             map.put("device", pairDevice);
-                            pairTVName.setText("未配对");
+                            pairTVName.setText("непарный");
                             list.add(map);
                             itemAdapter.notifyDataSetChanged();
                         } else {
-                            showShortToast("取消配对失败");
+                            showShortToast("Отменить сопряжение не удалось");
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -285,14 +279,14 @@ public class Bluetooth extends BaseActivity implements View.OnClickListener {
                     map.put("name", device.getName());
                     map.put("type", device.getBluetoothClass().getDeviceClass());
                     map.put("device", device);
-                    if (list.indexOf(map) == -1) {// 防止重复添加
+                    if (list.indexOf(map) == -1) {
                         list.add(map);
                         itemAdapter = new MyBluetoothAdapter(context, list);
                         searchDeviceLV.setAdapter(itemAdapter);
                     }
                 }
             } else if (device != null && device.getBondState() == BluetoothDevice.BOND_BONDING) {
-                showShortToast("正在配对");
+                showShortToast("соединение");
             } else if (device != null && device.getBondState() == BluetoothDevice.BOND_BONDED) {
                 pairTVName.setText(device.getName());
                 for (int i = 0; i < list.size(); i++) {
@@ -302,7 +296,7 @@ public class Bluetooth extends BaseActivity implements View.OnClickListener {
                         itemAdapter.notifyDataSetChanged();
                     }
                 }
-                showShortToast("配对完成");
+                showShortToast("Завершение соединения");
             }
         }
     };

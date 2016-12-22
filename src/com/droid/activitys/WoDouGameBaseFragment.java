@@ -14,16 +14,10 @@ import com.droid.application.ClientApplication;
 
 public class WoDouGameBaseFragment extends Fragment {
 
-    /**
-     * 当前的ImageView
-     * 添加边框时
-     */
+
     ImageView currentImage;
     private Context context = ClientApplication.getContext();
 
-    /**
-     * 提供选中放大的效果
-     */
     public View.OnFocusChangeListener mFocusChangeListener = new View.OnFocusChangeListener() {
 
         @Override
@@ -35,7 +29,7 @@ public class WoDouGameBaseFragment extends Fragment {
             } else {
                 focus = R.anim.decrease;
             }
-            //如果有焦点就放大，没有焦点就缩小
+
             Animation mAnimation = AnimationUtils.loadAnimation(
                     getActivity().getApplication(), focus);
             mAnimation.setBackgroundColor(Color.TRANSPARENT);

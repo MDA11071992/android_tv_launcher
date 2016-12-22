@@ -1,8 +1,5 @@
 package com.droid.activitys.app;
 
-import java.util.List;
-
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,15 +10,11 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import com.droid.R;
 import com.droid.bean.AppBean;
+
+import java.util.List;
 
 public class ManagerApp extends LinearLayout implements View.OnClickListener {
 
@@ -263,7 +256,7 @@ public class ManagerApp extends LinearLayout implements View.OnClickListener {
 
 			@Override
 			public void onClick(View arg0) {
-				Toast.makeText(mContext, "更新-更新", Toast.LENGTH_SHORT).show();
+				Toast.makeText(mContext, "Обновление", Toast.LENGTH_SHORT).show();
 				mPopupWindow.dismiss();
 			}
 		});
@@ -271,7 +264,7 @@ public class ManagerApp extends LinearLayout implements View.OnClickListener {
 
 			@Override
 			public void onClick(View arg0) {
-				Toast.makeText(mContext, "收藏-收藏", Toast.LENGTH_SHORT).show();
+				Toast.makeText(mContext, "Избраное", Toast.LENGTH_SHORT).show();
 				mPopupWindow.dismiss();
 			}
 		});
@@ -279,7 +272,7 @@ public class ManagerApp extends LinearLayout implements View.OnClickListener {
 
 			@Override
 			public void onClick(View arg0) {
-				Toast.makeText(mContext, "卸载--卸载", Toast.LENGTH_SHORT).show();
+				Toast.makeText(mContext, "Удалить", Toast.LENGTH_SHORT).show();
 				String packageName = mAppList.get(position).getPackageName();
 				Log.i(TAG, "packageName===" + packageName);
 				Uri packageURI = Uri.parse("package:" + packageName);

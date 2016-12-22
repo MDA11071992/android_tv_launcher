@@ -1,8 +1,5 @@
 package com.droid.activitys.wifi;
 
-import java.util.List;
-
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -14,27 +11,16 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.view.*;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.AdapterView;
+import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.droid.R;
 import com.droid.activitys.wifi.util.WiFiAdmin;
+
+import java.util.List;
 
 public class WifiActivity extends Activity implements OnClickListener,OnItemClickListener{
 	private ListView WifiListView;
@@ -45,15 +31,14 @@ public class WifiActivity extends Activity implements OnClickListener,OnItemClic
 	private String ConnectSSID="";
 	private TextView Wifi_StateDisplay;
 	private ImageView Arrowtop;
-	private final int WIFI_OPEN_FINISH=1;//开启完成
-	private final int WIFI_FOUND_FINISH=0;//查找完成
-	private final int WIFI_SCAN=2;//wifi扫描
-	private final int WIFI_CLOSE=3;//关闭wifi
+	private final int WIFI_OPEN_FINISH=1;//Open is complete
+	private final int WIFI_FOUND_FINISH=0;//Finished
+	private final int WIFI_SCAN=2;
+	private final int WIFI_CLOSE=3;
 	private final int WIFI_INFO=4;
-	private final int WIFI_STATE_INIT=5;//加载页面
+	private final int WIFI_STATE_INIT=5;
 	private Dialog ConnectDialog;
-	private int NetId;//WIFI连接状态
-	@SuppressLint("HandlerLeak")
+	private int NetId;
 	final Handler handler=new Handler(){
 
 		@Override
@@ -65,21 +50,21 @@ public class WifiActivity extends Activity implements OnClickListener,OnItemClic
 				break;
 			 case WIFI_STATE_INIT:  
 			    	int wifiState=wiFiAdmin.GetWifiState();
-			    	if(wifiState==wiFiAdmin.getWifiManager().WIFI_STATE_DISABLED){  //wifi不可用啊
-				    	Wifi_StateDisplay.setText("WiFi 网卡未打开");
-			    	}else if(wifiState==wiFiAdmin.getWifiManager().WIFI_STATE_UNKNOWN){//wifi 状态未知
-			    		Wifi_StateDisplay.setText("WiFi 网卡状态未知");
-			    	}else if(wifiState==wiFiAdmin.getWifiManager().WIFI_STATE_ENABLED){//OK 可用
+			    	if(wifiState==wiFiAdmin.getWifiManager().WIFI_STATE_DISABLED){
+				    	Wifi_StateDisplay.setText("WiFi не подключен");
+			    	}else if(wifiState==wiFiAdmin.getWifiManager().WIFI_STATE_UNKNOWN){
+			    		Wifi_StateDisplay.setText("WiFi статус неизвестен");
+			    	}else if(wifiState==wiFiAdmin.getWifiManager().WIFI_STATE_ENABLED){
 			        	WifiSwitch.setChecked(true);
 			        	wiFiAdmin.StartScan();
 			    		scanResults =wiFiAdmin.GetWifilist();
 				        handler.sendEmptyMessageDelayed(WIFI_SCAN, 1000);
 
 			    		if(wiFiAdmin.isWifiEnable()){
-			               Toast.makeText(WifiActivity.this, "wifi已经打开", Toast.LENGTH_SHORT).show();  
+			               Toast.makeText(WifiActivity.this, "wifi уже включен", Toast.LENGTH_SHORT).show();
 
 			    		}else { 
-				             Toast.makeText(WifiActivity.this, "请 开启 wifi", Toast.LENGTH_SHORT).show();  
+				             Toast.makeText(WifiActivity.this, "Включите wifi", Toast.LENGTH_SHORT).show();
 			    		}		        	
 			    	}
 			    	
@@ -92,41 +77,41 @@ public class WifiActivity extends Activity implements OnClickListener,OnItemClic
 			case  WIFI_SCAN:
 				wiFiAdmin.StartScan();
 				scanResults=wiFiAdmin.GetWifilist();
-				Wifi_StateDisplay.setText("正在扫描附近的WIFI...");
+				Wifi_StateDisplay.setText("Поиск WIFI...");
 				if(scanResults==null){
 					handler.sendEmptyMessageDelayed(WIFI_SCAN, 1000);
 				}else if(scanResults.size()==0){
 					handler.sendEmptyMessageDelayed(WIFI_SCAN, 1000);
 					SetScanResult();
 				}else{
-					Wifi_StateDisplay.setText("附近WiFi");
+					Wifi_StateDisplay.setText("Найден WiFi");
 					adapter=new WAndB_WifilistAdapter(WifiActivity.this, scanResults);
 					WifiListView.setAdapter(adapter);
 				}
 				break;
 			case WIFI_CLOSE:
 				SetScanResult();
-				Wifi_StateDisplay.setText("WIFI已关闭");
+				Wifi_StateDisplay.setText("WIFI Закрыт");
 				break;
 			case WIFI_INFO:
 				if(wiFiAdmin.GetSSID().endsWith("<unknown ssid>")||wiFiAdmin.GetSSID().endsWith("NULL")){
 					wiFiAdmin.getWifiConnectInfo();
-					Wifi_StateDisplay.setText("无WIFI连接");
+					Wifi_StateDisplay.setText("Нет подключения к WiFi");
 					handler.sendEmptyMessageDelayed(WIFI_INFO, 2500);
 				}else if(wiFiAdmin.GetSSID().equals("NULL")){
 					wiFiAdmin.getWifiConnectInfo();
-					Wifi_StateDisplay.setText("无连接,请选择合适的WiFi连接");
+					Wifi_StateDisplay.setText("Нет подключения, выберите другое WiFi соединения");
 		    		handler.sendEmptyMessageDelayed(WIFI_INFO, 2500);
 		    	}else{
 		    		wiFiAdmin.getWifiConnectInfo();
 		    		if(wiFiAdmin.GetIntIp().equals("")){
 		    			handler.sendEmptyMessageDelayed(WIFI_INFO, 2500);
 		    		}
-		    		Wifi_StateDisplay.setText("已连接到"+wiFiAdmin.GetSSID()+"若切换有线网络请连接网线");
+		    		Wifi_StateDisplay.setText("Подключение к"+wiFiAdmin.GetSSID()+"Если есть проводная сеть, подключите сетевой кабель");
 		    		ConnectDialog.dismiss();
 		    		ConnectSSID=wiFiAdmin.GetSSID();
 		    		Toast.makeText(WifiActivity.this, ConnectSSID, Toast.LENGTH_SHORT).show();
-		    		Toast.makeText(WifiActivity.this, "连接成功", Toast.LENGTH_SHORT).show();
+		    		Toast.makeText(WifiActivity.this, "Соединение успешно", Toast.LENGTH_SHORT).show();
 		    	}
 				break;
 			}
@@ -180,11 +165,11 @@ public void InitData(){
 			wiFiAdmin.StartScan();
 			scanResults=wiFiAdmin.GetWifilist();
 			handler.sendEmptyMessageDelayed(WIFI_SCAN, 1000);
-			 Toast.makeText(WifiActivity.this, "打开 WiFi", Toast.LENGTH_SHORT).show();  
+			 Toast.makeText(WifiActivity.this, "WiFi включен", Toast.LENGTH_SHORT).show();
 		}else{
 			wiFiAdmin.CloseWifi();
 			handler.sendEmptyMessage(WIFI_CLOSE);
-			Toast.makeText(WifiActivity.this, "关闭 WiFi", Toast.LENGTH_SHORT).show();  
+			Toast.makeText(WifiActivity.this, "WiFi отключен", Toast.LENGTH_SHORT).show();
 		}
 		}
 	});
@@ -204,7 +189,7 @@ public void onClick(View arg0) {
 public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 	// TODO Auto-generated method stub
 	if(GetNowWifiSSID().equals("\""+scanResults.get(arg2).SSID+"\"")){
-		Toast.makeText(WifiActivity.this, "当前已连接此网络", Toast.LENGTH_SHORT).show();
+		Toast.makeText(WifiActivity.this, "В настоящее время вы подключены к этой сети", Toast.LENGTH_SHORT).show();
 		}else{
 	final int Num=arg2;
 	LayoutInflater layoutInflater=LayoutInflater.from(WifiActivity.this);
@@ -240,16 +225,16 @@ public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 			String WifiPassword=password.getText().toString();
 			NetId=wiFiAdmin.AddNetwork(wiFiAdmin.CreatConfiguration(scanResults.get(Num).SSID, WifiPassword, 3));
 			if(NetId==0){
-				Toast.makeText(WifiActivity.this, "无线网卡不可用", Toast.LENGTH_LONG).show();
+				Toast.makeText(WifiActivity.this, "Нет доступа в Интернет", Toast.LENGTH_LONG).show();
 			}else if(NetId==1){
-				Toast.makeText(WifiActivity.this, "密码错误", Toast.LENGTH_LONG).show();
+				Toast.makeText(WifiActivity.this, "Неправильный пароль", Toast.LENGTH_LONG).show();
 			}else if(NetId==2){
-				Toast.makeText(WifiActivity.this, "正在连接", Toast.LENGTH_LONG).show();  
+				Toast.makeText(WifiActivity.this, "соединение", Toast.LENGTH_LONG).show();
                  ConnectDialog.dismiss();
 			}else if(NetId==-1){
-				Toast.makeText(WifiActivity.this, "连接失败", Toast.LENGTH_LONG).show(); 
+				Toast.makeText(WifiActivity.this, "Ошибка подключения", Toast.LENGTH_LONG).show();
 			}else{
-				Toast.makeText(WifiActivity.this, "正在连接", Toast.LENGTH_LONG).show();  
+				Toast.makeText(WifiActivity.this, "соединение", Toast.LENGTH_LONG).show();
                 ConnectDialog.dismiss();
 			}
 			handler.sendEmptyMessageDelayed(WIFI_INFO, 2000);

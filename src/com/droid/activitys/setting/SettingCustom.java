@@ -14,9 +14,7 @@ import com.droid.activitys.Ethernet;
 import com.droid.activitys.speedtest.SpeedTestActivity;
 import com.droid.activitys.wifi.WifiActivity;
 
-/**
- *@author Droid
- */
+
 public class SettingCustom extends Activity implements View.OnClickListener {
 
     private static final String TAG = "UPDATE";

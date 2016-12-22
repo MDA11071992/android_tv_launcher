@@ -1,31 +1,20 @@
 package com.droid.activitys.garbageclear;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
+import android.os.*;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import com.droid.R;
 import com.droid.activitys.garbageclear.util.ClearUtil;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressLint("InflateParams")
 public class GarbageClear extends Activity {
@@ -55,21 +44,21 @@ public class GarbageClear extends Activity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case FOUND_FINISH:
-                    //查找完毕
+                    //Finished
                     Found = true;
-                    StartFound.setText("开始清理");
-                    file_path.setText("查找完毕");
+                    StartFound.setText("Начать очистку");
+                    file_path.setText("Конец");
                     StartFound.setClickable(true);
                     progressdisplay.setProgress(100);
                     progressbar_num = 0;
                     dialog_img.setImageResource(R.drawable.dialog_center_img);
                     break;
                 case CLEAR_FINISH:
-                    //清理完毕
+                    //Clean up is complete
                     Found = false;
                     StartClear.setClickable(true);
-                    StartFound.setText("开始扫描");
-                    StartClear.setText("清理完毕");
+                    StartFound.setText("Запуск сканирования");
+                    StartClear.setText("Очищенно");
                     grbage_size.setText("0");
                     StartFound.setClickable(true);
                     animation = null;
@@ -127,7 +116,7 @@ public class GarbageClear extends Activity {
                 // TODO Auto-generated method stub
                 StartFound.setClickable(false);
                 if (!Found) {
-                    StartFound.setText("扫描中");
+                    StartFound.setText("сканирование");
                     StartClear.setClickable(false);
                     new FoundTask(Environment.getExternalStorageDirectory()
                             + "/", ClearType).execute();
@@ -150,7 +139,7 @@ public class GarbageClear extends Activity {
                         }).start();
                     } else {
                         StartFound.setClickable(true);
-                        Toast.makeText(GarbageClear.this, "当前不需要清理", Toast.LENGTH_SHORT)
+                        Toast.makeText(GarbageClear.this, "В настоящее время необходимо, очистить", Toast.LENGTH_SHORT)
                                 .show();
                     }
                 }
@@ -167,7 +156,7 @@ public class GarbageClear extends Activity {
     }
 
     /*
-     *扫描文件异步任务
+     *Scans a file for asynchronous tasks
      */
     class FoundTask extends AsyncTask<Void, String, List<FoundTask>> {
         String path;
@@ -212,7 +201,7 @@ public class GarbageClear extends Activity {
 
         @Override
         protected void onProgressUpdate(String... values) {
-            //更改显示的文件路径
+            //Change the displayed file path
             String value = values[0];
             file_path.setText(value);
         }
@@ -221,7 +210,7 @@ public class GarbageClear extends Activity {
         protected void onPostExecute(List<FoundTask> result) {
             // TODO Auto-generated method stub
             super.onPostExecute(result);
-            //执行完毕  开始执行下一个任务
+            //Execution is completed and the next task is started
             if (result != null && TaskNum != 0) {
                 tasklist.get(0).execute();
                 grbage_size.setText((int) ((float) File_Grbagesize / 1024 / 1024 / 2) + "");
@@ -234,7 +223,7 @@ public class GarbageClear extends Activity {
                     progressbar_num = 0;
                 }
             }
-            //任务执行完成
+            //Task execution is complete
             else if (TaskNum == 0) {
                 Message message = new Message();
                 message.what = FOUND_FINISH;

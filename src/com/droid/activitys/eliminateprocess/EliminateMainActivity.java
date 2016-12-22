@@ -1,10 +1,5 @@
 package com.droid.activitys.eliminateprocess;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.text.DecimalFormat;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -19,19 +14,16 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import com.droid.R;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.lang.reflect.Method;
+import java.text.DecimalFormat;
+import java.util.List;
 
-/*
- * by:    kangzizhuang
- */
+
 @SuppressLint("InflateParams")
 public class EliminateMainActivity extends Activity {
 	protected static final int LOAD_FINISH = 0;
@@ -71,12 +63,12 @@ public class EliminateMainActivity extends Activity {
 				clear_endlayout.setVisibility(View.VISIBLE);
 				increase_speed.setText(percentnum+"%");
 				release_memory.setText(Clearmemory+"MB");
-				Start_kill.setText("清理完成");
+				Start_kill.setText("Очистка завершена");
 				break;
 			case NEEDENT_CLEAR:
 				percentnum=0+"";
 				Clearmemory=0+"";
-				Toast.makeText(EliminateMainActivity.this, "当前不需要清理", Toast.LENGTH_LONG).show();
+				Toast.makeText(EliminateMainActivity.this, "Очистка не требуется", Toast.LENGTH_LONG).show();
 				break;
 			case PERCENT_CHANGE:
 				Allpercent.setText(allpercent+"%");
@@ -118,7 +110,7 @@ public class EliminateMainActivity extends Activity {
 		}
 	});
 	}
-	// 加载所有获取到的应用的信息
+	// Load all the information of the acquired application
 	public void InitData() {
 		new Thread(new Runnable() {
 			
@@ -145,14 +137,14 @@ public class EliminateMainActivity extends Activity {
 		}).start();
 	}
 
-	// 得到当前运行的进程数目
+	// Gets the number of processes currently running
 	public List<RunningAppProcessInfo> getRunningApp() {
 		appProcessInfo = activityManager.getRunningAppProcesses();
 		return appProcessInfo;
 
 	}
 
-	// 得到当前剩余的内存
+	// Get the current remaining memory
 	public long GetSurplusMemory() {
 		info = new ActivityManager.MemoryInfo();
 		activityManager.getMemoryInfo(info);
@@ -161,7 +153,7 @@ public class EliminateMainActivity extends Activity {
 		return MemorySize;
 	}
 	public float GetTotalMemory(){
-		String str1 = "/proc/meminfo";// 系统内存信息文件 
+		String str1 = "/proc/meminfo";// System memory information file
 		String str2;
         String[] arrayOfString;
         long initial_memory = 0; 
@@ -181,16 +173,15 @@ public class EliminateMainActivity extends Activity {
 		for (TaskInfo info : UserTaskInfo) {
 			if (!info.getIsSystemProcess()) {
 				activityManager.killBackgroundProcesses(info.getPackageName());
-				// 高级清理
-				// try {
-				// Method method =
-				// Class.forName("android.app.ActivityManager").getMethod("forceStopPackage",
-				// String.class);
-				// method.invoke(activityManager, info.getPackageName());
-				// } catch (Exception e) {
-				// // TODO Auto-generated catch block
-				// e.printStackTrace();
-				// }
+				// Advanced Cleanup
+				 try {
+				 Method method =
+				 Class.forName("android.app.ActivityManager").getMethod("forceStopPackage", String.class);
+				 method.invoke(activityManager, info.getPackageName());
+				 } catch (Exception e) {
+				 // TODO Auto-generated catch block
+				 e.printStackTrace();
+				 }
 			}
 		}
 		MemoryInfo info = new ActivityManager.MemoryInfo();

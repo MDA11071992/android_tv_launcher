@@ -25,7 +25,7 @@ public class AppFragment extends WoDouGameBaseFragment {
 
     private Context mContext;
     private List<AppBean> mAppList = null;
-    private int mPagerCount = -1;//一共的页数
+    private int mPagerCount = -1;//一Of pages
     private List<AllApp> mPagerListAllApp = new ArrayList<AllApp>();
     private ViewPager mViewPager = null;
     private static final String TAG = "AppFragment";
@@ -55,9 +55,7 @@ public class AppFragment extends WoDouGameBaseFragment {
         return view;
     }
 
-    /**
-     * 3D旋转动画
-     */
+
     private void initAnimation() {
         rotation = new Rotate3dAnimation(0, 360, 25,
                 25, 0.0f, false);
@@ -95,9 +93,7 @@ public class AppFragment extends WoDouGameBaseFragment {
         }
     }
 
-    /**
-     * 初始化app数据和布局
-     */
+
     public void initAllApp() {
 
         GetAppList getAppInstance = new GetAppList(mContext);
@@ -185,11 +181,11 @@ public class AppFragment extends WoDouGameBaseFragment {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            //安装广播
+            //Install the broadcast
             if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
                 initAllApp();
             }
-           //卸载广播
+           //Uninstall the broadcast
             if (intent.getAction().equals("android.intent.action.PACKAGE_REMOVED")) {
                 initAllApp();
             }

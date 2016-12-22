@@ -14,10 +14,6 @@ import android.widget.TextView;
 
 import com.droid.R;
 
-/**
- * @author Droid
- * 有线网络连接
- */
 
 public class Ethernet extends Activity {
 
@@ -81,10 +77,10 @@ public class Ethernet extends Activity {
 
             if (currentNetworkInfo.isConnected()
                     && currentNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-                tip.setText("已连接无线网络，若连接有线请插好网线");
+                tip.setText("Подключен к беспроводной сети, если есть сетевое подключение, подключите кабель.");
             } else if (currentNetworkInfo.isConnected()
                     && currentNetworkInfo.getType() == ConnectivityManager.TYPE_ETHERNET) {
-                tip.setText("已连接有线网络");
+                tip.setText("Проводная сеть подключена");
             }
         }
     };
