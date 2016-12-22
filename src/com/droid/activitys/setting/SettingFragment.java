@@ -1,6 +1,5 @@
 package com.droid.activitys.setting;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -21,7 +20,6 @@ import com.droid.application.ClientApplication;
 import com.droid.cache.ImageCache;
 import com.droid.cache.loader.ImageFetcher;
 import com.droid.cache.loader.ImageWorker;
-import com.droid.views.FocusedRelativeLayout;
 
 import java.util.List;
 
@@ -74,14 +72,14 @@ public class SettingFragment extends WoDouGameBaseFragment implements
 
     private void initView(View view) {
 
-        @SuppressLint("WrongViewCast") FocusedRelativeLayout focus = (FocusedRelativeLayout)
-                view.findViewById(R.id.setting_focus_rl);
-        focus.setFocusResId(R.drawable.focus_bg);
-        focus.setFocusShadowResId(R.drawable.focus_shadow);
-        focus.setFocusable(true);
-        focus.setFocusableInTouchMode(true);
-        focus.requestFocus();
-        focus.requestFocusFromTouch();
+    //    @SuppressLint("WrongViewCast") FocusedRelativeLayout focus = (FocusedRelativeLayout)
+    //            view.findViewById(R.id.setting_focus_rl);
+    //    focus.setFocusResId(R.drawable.focus_bg);
+    //    focus.setFocusShadowResId(R.drawable.focus_shadow);
+    //    focus.setFocusable(true);
+    //    focus.setFocusableInTouchMode(true);
+    //    focus.requestFocus();
+    //    focus.requestFocusFromTouch();
 
         appUninstall = (ImageButton) view.findViewById(R.id.setting_uninstall);
         setNet = (ImageButton) view.findViewById(R.id.setting_net);

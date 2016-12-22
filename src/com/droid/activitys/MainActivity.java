@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RadioButton app;
     private SQLiteDatabase mSQLiteDataBase;
     private ClientApplication mClientApp;
-    private List<ContentValues> datas;//图片数据
+    private List<ContentValues> datas;
     private int currentIndex;
     private static final int PAGE_NUMBER = 3;
     private ArrayList<Fragment> fragments = new ArrayList<Fragment>();

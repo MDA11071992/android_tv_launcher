@@ -289,7 +289,6 @@ public class LogUtil {
                         print("createFile error , " + e.getMessage());
                     }
                 } else {
-                    //已经存在了
                     if (IF_START_NEWLOG) {
                         FILE_LOG_COUNT ++;
                         return new File(f.getAbsolutePath() + File.separator + getCurrTimeDir() + "_" + FILE_LOG_COUNT+ ".log");

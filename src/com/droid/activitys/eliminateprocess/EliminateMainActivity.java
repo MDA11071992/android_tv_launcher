@@ -19,7 +19,6 @@ import com.droid.R;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -173,15 +172,15 @@ public class EliminateMainActivity extends Activity {
 		for (TaskInfo info : UserTaskInfo) {
 			if (!info.getIsSystemProcess()) {
 				activityManager.killBackgroundProcesses(info.getPackageName());
-				// Advanced Cleanup
-				 try {
-				 Method method =
-				 Class.forName("android.app.ActivityManager").getMethod("forceStopPackage", String.class);
-				 method.invoke(activityManager, info.getPackageName());
-				 } catch (Exception e) {
-				 // TODO Auto-generated catch block
-				 e.printStackTrace();
-				 }
+		//		// Advanced Cleanup
+		//		 try {
+		//		 Method method =
+		//		 Class.forName("android.app.ActivityManager").getMethod("forceStopPackage", String.class);
+		//		 method.invoke(activityManager, info.getPackageName());
+		//		 } catch (Exception e) {
+		//		 // TODO Auto-generated catch block
+		//		 e.printStackTrace();
+		//		 }
 			}
 		}
 		MemoryInfo info = new ActivityManager.MemoryInfo();

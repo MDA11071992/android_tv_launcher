@@ -54,7 +54,6 @@ public class MainService extends Service {
 
 		@Override
 		public void run() {
-            //更新图片的一些操作。。。
             saveStringJsonPicData2sp("");
 			Intent intent = new Intent();
 			intent.setAction("com.droid.updateUI");
