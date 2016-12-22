@@ -36,7 +36,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Скорость"
+                android:text="Измерить"
                 android:layout_marginTop="50dp"
                 android:layout_gravity="center_horizontal"
                 android:textColor="#FFFFFF"
@@ -161,11 +161,16 @@
         android:id="@+id/nandb_tittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="скорость сети"
+        android:text="Измерение скорости сети"
         android:textColor="@color/white"
         android:textSize="35sp"
         android:layout_alignStart="@id/speed_test_fl"
         android:layout_marginBottom="30dp"
         android:layout_above="@+id/speed_test_fl" />
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView" android:layout_alignParentTop="true" android:layout_toEndOf="@+id/speed_test_fl"
+            android:layout_marginTop="83dp"/>
 
 </RelativeLayout>

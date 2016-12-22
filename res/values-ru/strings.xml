@@ -17,7 +17,7 @@
     <string name="qidong_app">Открытые</string>
     <string name="remove_app">Удаление</string>
     <string name="show_all_apps">Приложения</string>
-    <string name="start_clear">Сброс настроек</string>
+    <string name="start_clear">Сканировать</string>
     <string name="update_app">Обновление</string>
     <string name="wallpaper_instructions">Нажмите на изображение, чтобы установить обои</string>
     <string name="start_eliminate_process">Начать очистку</string>

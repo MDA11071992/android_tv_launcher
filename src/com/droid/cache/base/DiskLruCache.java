@@ -138,7 +138,6 @@ public class DiskLruCache {
         File eldestFile;
         long eldestFileSize;
         int count = 0;
-        //超过最大缓存文件个数   or  超过最大空间大小    移除不常用的文件,并且一次最多只能移除4个.
         while (count < MAX_REMOVALS && (cacheNumSize > maxCacheNumSize || cacheByteSize > maxCacheByteSize)) {
             eldestEntry = mLinkedHashMap.entrySet().iterator().next();
             eldestFile = new File(eldestEntry.getValue());

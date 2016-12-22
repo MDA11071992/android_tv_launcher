@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="网络和蓝牙"
+        android:text="Настройка подключений"
         android:textColor="@color/white"
         android:textSize="35sp"
         android:layout_alignLeft="@+id/setting_custom_rl"
@@ -42,7 +42,7 @@
                 android:layout_height="50dp"
                 android:focusable="true"
                 android:gravity="center"
-                android:text="无线网络"
+                android:text="WiFi"
                 android:layout_margin="5dp"
                 android:textColor="@android:color/white"
                 android:background="@drawable/sel_focus"
@@ -55,7 +55,7 @@
                 android:focusable="true"
                 android:gravity="center"
                 android:layout_margin="5dp"
-                android:text="有线网络"
+                android:text="Etherner"
                 android:background="@drawable/sel_focus"
                 android:textColor="@android:color/white"
                 android:textSize="25sp" />
@@ -67,7 +67,7 @@
                 android:focusable="true"
                 android:gravity="center"
                 android:layout_margin="5dp"
-                android:text="蓝牙"
+                android:text="Bluetooth"
                 android:background="@drawable/sel_focus"
                 android:textColor="@android:color/white"
                 android:textSize="25sp" />
@@ -79,7 +79,7 @@
                 android:focusable="true"
                 android:layout_margin="5dp"
                 android:gravity="center"
-                android:text="网络测速"
+                android:text="Измерение скорости сети"
                 android:background="@drawable/sel_focus"
                 android:textColor="@android:color/white"
                 android:textSize="25sp" />

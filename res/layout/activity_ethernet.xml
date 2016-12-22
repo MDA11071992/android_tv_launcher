@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="有线网络设置"
+        android:text="Ethernet"
         android:textColor="@color/white"
         android:textSize="35sp"
         android:layout_alignStart="@+id/ethernet_rl"

@@ -33,7 +33,7 @@ public class GarbageClear extends Activity {
     private ImageView dialog_img;
     private long File_Grbagesize = 0;
     private TextView grbage_size;
-    private boolean Found = false;// 如果为false则未完成扫描
+    private boolean Found = false;
     private int TaskNum = 0;
     private int progressbar_num = 0;
     private List<FoundTask> tasklist;
@@ -46,8 +46,8 @@ public class GarbageClear extends Activity {
                 case FOUND_FINISH:
                     //Finished
                     Found = true;
-                    StartFound.setText("Начать очистку");
-                    file_path.setText("Конец");
+                    StartFound.setText("Очистить");
+                    file_path.setText("Сканирование завершено");
                     StartFound.setClickable(true);
                     progressdisplay.setProgress(100);
                     progressbar_num = 0;
@@ -58,7 +58,7 @@ public class GarbageClear extends Activity {
                     Found = false;
                     StartClear.setClickable(true);
                     StartFound.setText("Запуск сканирования");
-                    StartClear.setText("Очищенно");
+                    StartClear.setText("Очищено");
                     grbage_size.setText("0");
                     StartFound.setClickable(true);
                     animation = null;
@@ -116,7 +116,7 @@ public class GarbageClear extends Activity {
                 // TODO Auto-generated method stub
                 StartFound.setClickable(false);
                 if (!Found) {
-                    StartFound.setText("сканирование");
+                    StartFound.setText("Сканирование...");
                     StartClear.setClickable(false);
                     new FoundTask(Environment.getExternalStorageDirectory()
                             + "/", ClearType).execute();
@@ -139,7 +139,7 @@ public class GarbageClear extends Activity {
                         }).start();
                     } else {
                         StartFound.setClickable(true);
-                        Toast.makeText(GarbageClear.this, "В настоящее время необходимо, очистить", Toast.LENGTH_SHORT)
+                        Toast.makeText(GarbageClear.this, "Очистка не нужна", Toast.LENGTH_SHORT)
                                 .show();
                     }
                 }
@@ -183,7 +183,6 @@ public class GarbageClear extends Activity {
                             File_path = file.getAbsolutePath();
                             IsInstall = ClearUtil.TakeIsInstallApk(File_path,
                                     GarbageClear.this);
-                            //判断是否已安装װ
                             if (!IsInstall) {
                                 long size = ClearUtil.getFileSize(file);
                                 File_Grbagesize = File_Grbagesize + size;

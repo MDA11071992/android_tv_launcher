@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="蓝牙设置"
+        android:text="Bluetooth"
         android:textColor="@color/white"
         android:textSize="35sp"
         android:layout_alignStart="@+id/bluetooth_rl_setting"
@@ -48,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="开启蓝牙"
+                    android:text="Включить"
                     android:layout_centerVertical="true"
                     android:textColor="@color/white"
                     android:textSize="30sp" />
@@ -75,7 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="开放检测"
+                    android:text="Обнаружение"
                     android:layout_centerVertical="true"
                     android:textColor="@color/white"
                     android:textSize="30sp" />
@@ -102,7 +102,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="搜索设备"
+                    android:text="Поиск"
                     android:layout_centerVertical="true"
                     android:textColor="@color/white"
                     android:textSize="30sp" />
