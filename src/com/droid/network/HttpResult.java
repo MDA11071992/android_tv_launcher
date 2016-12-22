@@ -47,7 +47,6 @@ public class HttpResult {
 	}
 
 	public String getHtml() {
-		//内存溢出
 		try {
 			return getText(HTTP.UTF_8);
 		} catch (Exception e) {

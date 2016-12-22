@@ -94,9 +94,7 @@ public class GameTitleView extends RelativeLayout {
         super.onDraw(canvas);
     }
 
-    /**
-     * wifi 信号强度
-     */
+
     private BroadcastReceiver wifiChange = new BroadcastReceiver() {
 
         @Override
@@ -105,7 +103,6 @@ public class GameTitleView extends RelativeLayout {
                     .getSystemService(context.WIFI_SERVICE);
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
             if (wifiInfo.getBSSID() != null) {
-                // wifi信号强度
                 int signalLevel = WifiManager.calculateSignalLevel(
                         wifiInfo.getRssi(), 4);
                 if (signalLevel == 0) {
@@ -130,9 +127,7 @@ public class GameTitleView extends RelativeLayout {
         }
     };
 
-    /**
-     * 网络状态
-     */
+
     private BroadcastReceiver mConnReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             boolean noConnectivity = intent.getBooleanExtra(

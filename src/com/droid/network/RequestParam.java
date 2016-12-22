@@ -7,9 +7,7 @@ import com.droid.application.ClientApplication;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-/**
- * 请求服务器的参数
- */
+
 public class RequestParam {
 
     public static final String USER_NAME = "userName";// 其实是手机号
@@ -36,102 +34,61 @@ public class RequestParam {
 
     public static final int SEND_TOPIC = 111;
 
-    /**
-     * 登录
-     */
+
     public final String LOGIN = "Login";
 
-    /**
-     * 注销
-     */
+
     public static final String LOGOUT = "Logout";
 
-    /**
-     * 定时访问服务器
-     */
+
     public static final String UPDATE_INFO = "update_info";
 
-    /**
-     * 获取用户资料
-     */
+
     public static final String GET_PERSONINFO = "GetPersonInfo";
 
-    /**
-     * 获取应用商城所有应用
-     */
+
     public static final String GET_APPSTORE_APPS = "GetAllAppstoreApps";
 
-    /**
-     * 终端认证
-     */
+
     public static final String TERMINAL_AUTHENTICATION = "TerminalAuthentication";
 
-    /**
-     *终端激活
-     */
+
     public static final String REGISTER = "Register";
 
     public static final String UPDATE_UI="UpdateUI";
 
-    /**
-     * 注册
-     */
     public static final String SIGNIN = "Signin";
 
-    /**
-     * 检查更新 apk 升级
-     */
 //    public static final String UPDATE = "SoftWareUpdate";
     public static final String UPDATE = "CheckAppUpdate";
 
-    /**
-     * 登录名
-     */
+
     private String userName;
 
-    /**
-     * 密码
-     */
+
     private String password;
 
-    /**
-     * 随机字符串
-     */
+
     private String randomKey;
 
-    /**
-     * 请求类型
-     */
+
     private String requestType;
 
-    /**
-     * mac 地址
-     */
     private String macAddress;
 
-    /**
-     * 地理位置信息
-     */
+
     private String locationInfo;
 
-    /**
-     * 请求参数
-     */
+
     private Object params[];
 
-    /**
-     * 设备ID
-     */
+
     private String deviceID;
 
-    /**
-     * 电话
-     */
+
     private String userPhone;
 
-    /**
-     * unique id
-     */
+
     private String uniqueID;
 
     private static final boolean d = ClientApplication.debug;
@@ -232,11 +189,11 @@ public class RequestParam {
             }
 
             object.put(RequestParam.PARAMS, jsonArray);
-            if (d) System.out.println("请求参数" + object.toString());
+            if (d) System.out.println("параметры запроса" + object.toString());
             return object.toString();
 
         } catch (Exception e) {
-            Log.e("RequestParam", "构建发送请求参数出错", e);
+            Log.e("RequestParam", "Ошибка параметра запроса", e);
             return "";
         }
     }

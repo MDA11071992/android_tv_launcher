@@ -1,20 +1,5 @@
 package com.droid.utils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.lang.reflect.Method;
-import java.security.MessageDigest;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
@@ -32,15 +17,23 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.http.HttpHandler;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
-
-import org.apache.http.HttpException;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.*;
+import java.lang.reflect.Method;
+import java.security.MessageDigest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @SuppressLint("DefaultLocale")
 public class Tools {
@@ -68,11 +61,7 @@ public class Tools {
 		return hexDigits[d1] + hexDigits[d2];
 	}
 
-	/**
-	 * 
-	 * @param origin
-	 * @return
-	 */
+
 	public static String md5Encode(String origin) {
 		String resultString = null;
 		try {
@@ -86,11 +75,7 @@ public class Tools {
 		return resultString;
 	}
 
-	/**
-	 * 
-	 * @param mobiles
-	 * @return
-	 */
+
 	public static boolean isMobileNO(String mobiles) {
 		Pattern p = Pattern
 				.compile("^((13[0-9])|(15[^4,\\D])|(18[0,1,3,5-9]))\\d{8}$");
@@ -99,12 +84,7 @@ public class Tools {
 		return m.matches();
 	}
 
-	/**
-	 * 
-	 * @param expression
-	 * @param text
-	 * @return
-	 */
+
 	private static boolean matchingText(String expression, String text) {
 		Pattern p = Pattern.compile(expression);
 		Matcher m = p.matcher(text);
@@ -112,11 +92,7 @@ public class Tools {
 		return b;
 	}
 
-	/**
-	 * 
-	 * @param zipcode
-	 * @return
-	 */
+
 	public static boolean isZipcode(String zipcode) {
 		Pattern p = Pattern.compile("[0-9]\\d{5}");
 		Matcher m = p.matcher(zipcode);
@@ -124,11 +100,7 @@ public class Tools {
 		return m.matches();
 	}
 
-	/**
-	 * 
-	 * @param email
-	 * @return
-	 */
+
 	public static boolean isValidEmail(String email) {
 		Pattern p = Pattern
 				.compile("^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$");
@@ -137,11 +109,6 @@ public class Tools {
 		return m.matches();
 	}
 
-	/**
-	 * 
-	 * @param telfix
-	 * @return
-	 */
 	public static boolean isTelfix(String telfix) {
 		Pattern p = Pattern.compile("d{3}-d{8}|d{4}-d{7}");
 		Matcher m = p.matcher(telfix);
@@ -149,11 +116,7 @@ public class Tools {
 		return m.matches();
 	}
 
-	/**
-	 * 
-	 * @param name
-	 * @return
-	 */
+
 	public static boolean isCorrectUserName(String name) {
 		Pattern p = Pattern.compile("([A-Za-z0-9]){2,10}");
 		Matcher m = p.matcher(name);
@@ -161,12 +124,7 @@ public class Tools {
 		return m.matches();
 	}
 
-	/**
-	 * 
-	 * @param pwd
-	 * @return
-	 * 
-	 */
+
 	public static boolean isCorrectUserPwd(String pwd) {
 		Pattern p = Pattern.compile("\\w{6,18}");
 		Matcher m = p.matcher(pwd);
@@ -174,10 +132,7 @@ public class Tools {
 		return m.matches();
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
+
 	public static boolean hasSdcard() {
 		String state = Environment.getExternalStorageState();
 		if (state.equals(Environment.MEDIA_MOUNTED)) {
@@ -187,12 +142,7 @@ public class Tools {
 		}
 	}
 
-    /**
-     *
-     * @param endTime
-     * @param countDown
-     * @return 剩余时间
-     */
+
 	public static String calculationRemainTime(String endTime, long countDown) {
 
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -204,7 +154,7 @@ public class Tools {
 			long hour = (l / (60 * 60 * 1000) - day * 24);
 			long min = ((l / (60 * 1000)) - day * 24 * 60 - hour * 60);
 			long s = (l / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
-			return "ʣ��" + day + "��" + hour + "Сʱ" + min + "��" + s + "��";
+			return "year" + day + "day" + hour + "hour" + min + "min" + s + "sec";
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -221,22 +171,13 @@ public class Tools {
 		toast.show();
 	}
 
-	/**
-	 * 
-	 * @param context
-	 * @return
-	 */
 	public static String getImeiCode(Context context) {
 		TelephonyManager tm = (TelephonyManager) context
 				.getSystemService(Context.TELEPHONY_SERVICE);
 		return tm.getDeviceId();
 	}
 
-	/**
-	 * @author sunglasses
-	 * @param listView
-	 * @category 计算listview高度
-	 */
+
 	public static void setListViewHeightBasedOnChildren(ListView listView) {
 		ListAdapter listAdapter = listView.getAdapter();
 		if (listAdapter == null) {
@@ -271,8 +212,10 @@ public class Tools {
 	public static void download(String url, String path,
 			final IOAuthCallBack iOAuthCallBack) {
 		HttpUtils http = new HttpUtils();
-		HttpHandler<File> handler = http.download(url, path, false, // 如果目标文件存在，接着未完成的部分继续下载。服务器不支持RANGE时将从新下载。
-				false, // 如果从请求返回信息中获取到文件名，下载完成后自动重命名。
+		HttpHandler<File> handler = http.download(url, path, false, // If the target file exists, the unfinished portion continues downloading.
+				// RANGE will be downloaded when the server does not support RANGE.
+				false, // If the file name is retrieved from the request return information,
+				// the download is automatically renamed.
 				new RequestCallBack<File>() {
 
 					@Override
@@ -294,18 +237,18 @@ public class Tools {
 
 	public static void installApk(Context context, File apk, String md5) {
 
-		// 校验文件MD5 值
-//		try {
-//			Log.d(TAG,
-//					"md5" + MD5Util.getFileMD5String(apk).equalsIgnoreCase(md5));
-//			if (!apk.exists()
-//					|| !MD5Util.getFileMD5String(apk).equalsIgnoreCase(md5)) {
-//				Log.d(TAG, "md5 check error");
-//				return;
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		// Verify the file MD5 value
+		try {
+			Log.d(TAG,
+					"md5" + MD5Util.getFileMD5String(apk).equalsIgnoreCase(md5));
+			if (!apk.exists()
+					|| !MD5Util.getFileMD5String(apk).equalsIgnoreCase(md5)) {
+				Log.d(TAG, "md5 check error");
+				return;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		FileUtils.modifyFile(apk);// 修改文件权限之可执行
 		Log.i(TAG, "===========install apk =========" + apk.getAbsolutePath());
 		Intent i = new Intent(Intent.ACTION_VIEW);
@@ -315,18 +258,15 @@ public class Tools {
 		context.startActivity(i);
 	}
 	
-	/**
-	 * @author cat
-	 * @category 判断是否有外网连接（普通方法不能判断外网的网络是否连接，比如连接上局域网）
-	 * @return
-	 */
+
 	public static final boolean ping() {
 
         String result = null;
         try {
-                String ip = "www.baidu.com";// 除非百度挂了，否则用这个应该没问题(也可以换成自己要连接的服务器地址)
+                String ip = "www.google.com";// Unless Baidu hung up, otherwise it should be no problem with this
+			// (can also be replaced by the server to connect their address)
                 Process p = Runtime.getRuntime().exec("ping -c 1 -w 100 " + ip);// ping3次
-                // 读取ping的内容，可不加。
+                // Read the contents of the ping
                 InputStream input = p.getInputStream();
                 BufferedReader in = new BufferedReader(new InputStreamReader(input));
                 StringBuffer stringBuffer = new StringBuffer();
@@ -335,7 +275,6 @@ public class Tools {
                         stringBuffer.append(content);
                 }
                 Log.i("TTT", "result content : " + stringBuffer.toString());
-                // PING的状态
                 int status = p.waitFor();
                 if (status == 0) {
                         result = "successful~";
@@ -353,10 +292,7 @@ public class Tools {
         return false;
 }
 
-    /**
-     * 得到sd卡剩余大小
-     * @return
-     */
+
     public static  long getSDAvailableSize() {
         File path = Environment.getExternalStorageDirectory();
         StatFs stat = new StatFs(path.getPath());
@@ -365,9 +301,7 @@ public class Tools {
         return blockSize * availableBlocks/1024;
     }
 
-    /**
-     * 判断是否是json结构
-     */
+
     public static boolean isJson(String value) {
         try {
             new JSONObject(value);

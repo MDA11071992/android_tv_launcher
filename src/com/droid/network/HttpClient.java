@@ -23,20 +23,7 @@ public class HttpClient {
 
     private static final boolean d = ClientApplication.debug;
 
-	/**
-	 * 访问服务器，向服务器发送http请求。
-	 * @param url 服务器路径
-	 * @param method 访问方法
-	 * @param postParam post的参数
-	 * @param connectTimeout 连接超时时间,单位毫秒
-	 * @param readTimeout 读取内容超时时间，单位毫秒
-	 * @ param proxy 代理地址
-	 * @ param property 连接的属性
-	 * @return 读取到的字节数组 
-	 * @throws NullPointerException 传入参数为空
-	 * @throws IOException
-	 * @throws ProtocolException
-	 */
+
 	public static byte[] connect( 
 			URL url, 
 			String method, 
@@ -45,10 +32,8 @@ public class HttpClient {
 			int readTimeout)
 		throws NullPointerException, IOException, ProtocolException {
 
-		//创建连接
 		HttpURLConnection connection = null;
 		connection = (HttpURLConnection) url.openConnection();
-		//设置属性
         connection.setConnectTimeout( connectTimeout );
 		connection.setReadTimeout( readTimeout );
 		connection.setDoInput( true );
@@ -56,10 +41,9 @@ public class HttpClient {
 		connection.setRequestMethod( method );
 		connection.setRequestProperty( "Accept-Charset", "utf-8" );
 
-		//如果是post方式传参，则处理
 		if( method == HttpClient.HTTP_POST && postParam != null ) {
 			BufferedOutputStream out = new BufferedOutputStream( connection.getOutputStream(), 8192 );
-			if(d)System.out.println( "post参数：" + postParam );
+			if(d)System.out.println( "Разместить свои параметры：" + postParam );
 			out.write( postParam.getBytes( "utf-8" ) );
 			out.flush();
 			out.close();
@@ -68,9 +52,7 @@ public class HttpClient {
 		ByteArrayOutputStream outStream = new ByteArrayOutputStream();
 		int result = connection.getResponseCode();
 		if(d)System.out.println( result );
-		//判断是否连接成功
 		if ( result == 200 ) {
-			//如果连接成功则读取内容
 			BufferedInputStream inStream = new BufferedInputStream( connection.getInputStream(), 8192 );
 			byte[] buffer = new byte[1024];
 			int len = -1;
@@ -84,12 +66,7 @@ public class HttpClient {
 		return outStream.toByteArray();
 	}
 	
-	/**
-	 * 判断网络是否连接
-	 * @param context
-	 * @return - true 网络连接
-	 * 		   - false 网络连接异常
-	 */
+
 	public static boolean isConnect( Context context ) {
 
 		try {

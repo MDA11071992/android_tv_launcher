@@ -14,9 +14,7 @@ import com.droid.R;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 蓝牙管理adapter
- */
+
 public class MyBluetoothAdapter extends BaseAdapter {
 
     private List<Map<String,Object>> list;
@@ -64,7 +62,7 @@ public class MyBluetoothAdapter extends BaseAdapter {
             holder.name.setText((String) map.get("name"));
         }
         int type = (Integer)map.get("type");
-        //根据设备类型 设置相应图片
+        //Set the picture according to the device type
         if(type> BluetoothClass.Device.PHONE_UNCATEGORIZED&&type<BluetoothClass.Device.PHONE_ISDN){
             holder.icon.setBackgroundResource(R.drawable.phone);
         }else if(type> BluetoothClass.Device.COMPUTER_UNCATEGORIZED&&type<BluetoothClass.Device.COMPUTER_WEARABLE){

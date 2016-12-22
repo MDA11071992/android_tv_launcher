@@ -101,7 +101,6 @@ public class TitleView extends RelativeLayout {
 					.getSystemService(context.WIFI_SERVICE);
 			WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 			if (wifiInfo.getBSSID() != null) {
-				// wifi信号强度
 				int signalLevel = WifiManager.calculateSignalLevel(
 						wifiInfo.getRssi(), 4);
 				if (signalLevel == 0) {

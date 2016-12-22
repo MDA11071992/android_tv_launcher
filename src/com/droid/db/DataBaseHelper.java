@@ -13,20 +13,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 	// String sql = "create table if not exists TestUsers"+
 	// "(id int primary key,name varchar,sex varchar)";
-	/**
-	 * 在SQLiteOpenHelper的子类当中，必须有该构造函数
-	 * 
-	 * @param context
-	 *            上下文对象
-	 * @param name
-	 *            数据库名称
-	 * @param factory
-	 * @param version
-	 *            当前数据库的版本，值必须是整数并且是递增的状态
-	 */
+
 	public DataBaseHelper(Context context, String name,
 			CursorFactory factory, int version) {
-		// 必须通过super调用父类当中的构造函数
 		super(context, name, factory, version);
 	}
 

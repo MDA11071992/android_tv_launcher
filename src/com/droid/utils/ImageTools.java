@@ -22,12 +22,7 @@ import com.droid.R;
 
 public class ImageTools {
 
-    /**
-     * 修改图片尺寸
-     * @param bitmap
-     * @param width
-     * @param height
-     */
+
     public static Bitmap zoomBitmap(Bitmap bitmap, int width, int height) {
         if (bitmap == null) {
             return null;
@@ -42,10 +37,7 @@ public class ImageTools {
         return newbmp;
     }
 
-    /**
-     *图片阴影
-     * @param originalBitmap
-     */
+
     public static Drawable drawImageDropShadow(Bitmap originalBitmap, Context context) {
 
         BlurMaskFilter blurFilter = new BlurMaskFilter(3,BlurMaskFilter.Blur.NORMAL);
@@ -65,11 +57,7 @@ public class ImageTools {
         return new BitmapDrawable(shadowImage32);
     }
 
-    /**
-     *圆形图片
-     * @param bitmap
-     * @return
-     */
+
     public static Bitmap toRoundBitmap(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
@@ -115,11 +103,6 @@ public class ImageTools {
         return output;
     }
 
-    /**
-     *圆角图片
-     * @param bitmap
-     * @return
-     */
     public static Bitmap getRoundedCornerBitmap(Bitmap bitmap) {
         Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
                 bitmap.getHeight(), Config.ARGB_8888);
@@ -143,11 +126,7 @@ public class ImageTools {
 
     }
 
-    /**
-     * 倒影图片
-     * @param originalBitmap
-     * @return
-     */
+
     public static Bitmap createReflectedImage(Bitmap originalBitmap) {
         final int reflectionGap = 4;
         int width = originalBitmap.getWidth();

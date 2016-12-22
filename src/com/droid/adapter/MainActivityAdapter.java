@@ -7,10 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
 
-/**
- * @author Droid
- *继承 FragmentStatePagerAdapter，fragment才会及时更新
- */
+
 public class MainActivityAdapter extends FragmentStatePagerAdapter {
     private ArrayList<Fragment> mFragments;
     private FragmentManager fm;

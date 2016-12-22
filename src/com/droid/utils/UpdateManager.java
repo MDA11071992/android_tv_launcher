@@ -7,9 +7,7 @@ import com.droid.db.SharedPreferencesUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-/**
- * apk更新下载
- */
+
 public class UpdateManager {
 	private static final String TAG = "UpdateManager";
 	private Context mContext;
@@ -42,9 +40,7 @@ public class UpdateManager {
 		}
 	};
 
-	/**
-	 * 外部接口让主Activity调用 请求服务器并检查服务器apk版本信息
-	 */
+
 	public void checkUpdateInfo() {
 
     }
@@ -53,17 +49,12 @@ public class UpdateManager {
 		return fileCache.getCacheDir();
 	}
 
-	/**
-	 * 下载apk
-	 * 
-	 */
+
 	private void downloadApk() throws JSONException {
 
     }
 
-	/**
-	 * 下载zip
-	 */
+
 	private void downloadZip() {}
 
 }

@@ -4,16 +4,10 @@ import android.util.Log;
 
 import com.droid.BuildConfig;
 
-/**
- * log工具.
- *@Title:
- *@Description:
- */
+
 public class LogUtil
 {
-    /**  日志log. */
     private static final String TAG = "Cache_Log";
-    /** 是否打印log. */
     private static final boolean DEBUG = BuildConfig.DEBUG;
 
 

@@ -9,16 +9,13 @@ import android.net.wifi.WifiManager;
 import java.lang.reflect.Method;
 import java.security.MessageDigest;
 
-/**
- * @author Droid
- */
+
 public class NetWorkUtil {
 	private final static String[] hexDigits = { "0", "1", "2", "3", "4", "5",
 			"6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
 	public static final int STATE_DISCONNECT = 0;
 	public static final int STATE_WIFI = 1;
 	public static final int STATE_MOBILE = 2;
-	// wifi 热点
 	public static final int WIFI_AP_STATE_DISABLING = 10;
 	public static final int WIFI_AP_STATE_DISABLED = 11;
 	public static final int WIFI_AP_STATE_ENABLING = 12;

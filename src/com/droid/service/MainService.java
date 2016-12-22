@@ -22,7 +22,6 @@ public class MainService extends Service {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-        //更新界面图片，一个小时一次
 		sp = SharedPreferencesUtil.getInstance(getApplicationContext());
 		run = new GetPicsRunnable();
 		thread = new HandlerThread("com.droid");
@@ -47,13 +46,10 @@ public class MainService extends Service {
 
 		public void startDownload() {
 			Log.d("TAG", "startDownload() executed");
-			// 执行具体的下载任务
 		}
 	}
 
-	/**
-	 * 获取图片数据的线程 todo: get pics 色块管理
-	 */
+
 	private class GetPicsRunnable implements Runnable {
 
 		@Override
@@ -67,10 +63,7 @@ public class MainService extends Service {
 		}
 	}
 
-	/**
-	 * 将返回的json数据保存到sp中
-	 * @param responseJson
-	 */
+
 	private void saveStringJsonPicData2sp(String responseJson) {
 		sp.putString("url_str_json_data", responseJson);
 	}

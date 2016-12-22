@@ -9,17 +9,13 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
 public class ClientApplication extends Application {
 
-    /**
-     * 请求协议
-     */
+
     public static final String HTTP = "http";
     public static final boolean d = true;
     public static  boolean netFlag = false;
     private static Context context;
 
-    /**
-     * 调试模式
-     */
+
     public static boolean debug =false;
 
     @Override
@@ -33,9 +29,7 @@ public class ClientApplication extends Application {
         return context;
     }
 
-    /**
-     * init UIL ImageLoader
-     */
+
     public static void initImageLoader(Context context) {
         // This configuration tuning is custom. You can tune every option, you
         // may tune some of them,

@@ -19,12 +19,7 @@ import java.io.File;
 import java.net.URI;
 import java.net.URL;
 
-/**
- * 使用 内存硬盘 双重缓存
- * 
- * @author shenhui
- * 
- */
+
 
 public class BitmapUtil {
 
@@ -55,13 +50,7 @@ public class BitmapUtil {
 		return instance;
 	}
 
-	/**
-	 * 得到指定大小的 bitmap
-	 * @param data
-	 * @param width
-	 * @param height
-	 * @return
-	 */
+
 	public Bitmap getBitmap(byte[] data, int width, int height) {
 		Bitmap bitmap = null;
 		Options opts = new Options();
@@ -72,15 +61,6 @@ public class BitmapUtil {
 		return bitmap;
 	}
 
-	/**
-	 * 计算缩放比例
-	 * @param options
-	 * @param reqWidth
-	 * 目标宽
-	 * @param reqHeight
-	 * 目标高
-	 * @return
-	 */
 	private int calculateInSampleSize(Options options,
 			int reqWidth, int reqHeight) {
 
@@ -99,19 +79,11 @@ public class BitmapUtil {
 			}
 		}
 
-		Log.d("", "原图尺寸：" + width + "x" + height + ",实际尺寸：" + reqWidth + "x"
+		Log.d("", "Исходный размер:" + width + "x" + height + "Фактический размер:" + reqWidth + "x"
 				+ reqHeight + ",inSampleSize = " + inSampleSize);
 		return inSampleSize;
 	}
 
-	/**
-	 * 直接从网络 获取 图片 不缓存
-	 * todo : 还未测试
-	 * @param url
-	 * @return
-	 * @throws org.apache.http.conn.ConnectTimeoutException
-	 * @throws java.io.IOException
-	 */
 
 	public static Bitmap getBitmap(String url) {
 		Bitmap bitmap = null;
@@ -132,17 +104,7 @@ public class BitmapUtil {
 		return bitmap;
 	}
 
-	/**
-	 * 该方法为静态方法，从网络下载图片，如果硬盘有数据 ，优先从硬盘缓存获取<br>
-	 * 并加入到内存缓存和 硬盘缓存<br>
-	 * 存在网络下载，只能运行在工作线程<br>
-	 * 
-	 * @param context
-	 * @param url
-	 * @param isLurCache
-	 *            是否加入到内存缓存，后台更新的时候不需要加入到内存缓存
-	 * @return
-	 */
+
 	public static Bitmap getBitmap(Context context, String url,
 			boolean isLurCache) {
 		Bitmap bitmap = null;
@@ -196,7 +158,7 @@ public class BitmapUtil {
 						.getContent());
 			}
 			if (bitmap == null) {
-				Log.e(TAG, "getBitmapFromNet 下载失败 " + retryCount + " 次, url = "
+				Log.e(TAG, "getBitmapFromNet Ошибка загрузки " + retryCount + " вторичный, url = "
 						+ url);
 			}
 		} catch (Exception e) {

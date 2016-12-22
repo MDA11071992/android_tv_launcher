@@ -12,21 +12,13 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/**
- * 图片撷取器.
- *@Title:
- *@Description:
- *@Version:
- */
+
 public class ImageFetcher extends ImageWorker
 {
-    /** 日志TAG. */
+
     private static final String TAG = "ImageFetcher";
 
-    /**
-     * 构造方法.
-     * @param context 上下文
-     */
+
     public ImageFetcher(Context context)
     {
         super(context);
@@ -35,21 +27,15 @@ public class ImageFetcher extends ImageWorker
     @Override
     protected Bitmap processBitmap(String url)
     {
-        //从网络下载图片.
         final File file = downloadBitmap(url);
         if (file != null)
         {
-            // 如果下载成功,转换成Bitmap返回.
             return BitmapFactory.decodeFile(file.getAbsolutePath());
         }
         return null;
     }
 
-    /**
-     * 从网络下载一个图片.
-     * @param netUrl 图片网络地址.
-     * @Description:
-     */
+
     private File downloadBitmap(String netUrl)
     {
         DiskLruCache diskCache = getImageCache().getDiskCache();
@@ -59,7 +45,6 @@ public class ImageFetcher extends ImageWorker
         {
             final URL url = new URL(netUrl);
             urlConnection = (HttpURLConnection) url.openConnection();
-            //放到图片的硬盘缓存中.
             String filePath = diskCache.put(netUrl, urlConnection.getInputStream());
             if(!TextUtils.isEmpty(filePath))
             {

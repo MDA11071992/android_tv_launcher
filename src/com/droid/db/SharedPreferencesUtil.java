@@ -5,9 +5,7 @@ import android.content.SharedPreferences;
 
 import java.util.Set;
 
-/**
- * @author Droid
- */
+
 public class SharedPreferencesUtil {
 	
 	private static final String SHAREDPREFERENCE_NAME = "sharedpreferences_droid";

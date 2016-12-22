@@ -1,32 +1,19 @@
 package com.droid.utils;
 
-import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
 import com.droid.application.ClientApplication;
 
-/**
- * 读取文件工具类
- */
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+
 public class FileUtils {
-	private final static String TAG = "FileUitl------读取文件工具类";
+	private final static String TAG = "Инструменты для чтения файла";
 
     private static final boolean d = ClientApplication.debug;
 
@@ -34,11 +21,7 @@ public class FileUtils {
 
 	private static String padFilePath = "/sdcard/driver.ini";
 
-	/**
-	 * 写文本文件 在Android系统中，文件保存在 /data/data/PACKAGE_NAME/files 目录下
-	 *
-	 * @param context
-	 */
+
 	public static void write(Context context, String fileName, String content) {
 		if (content == null)
 			content = "";
@@ -54,13 +37,7 @@ public class FileUtils {
 		}
 	}
 
-	/**
-	 * 读取文本文件
-	 * 
-	 * @param context
-	 * @param fileName
-	 * @return
-	 */
+
 	public static String read(Context context, String fileName) {
 		try {
 			FileInputStream in = context.openFileInput(fileName);
@@ -98,14 +75,7 @@ public class FileUtils {
 		return new File(folderPath, fileName + fileName);
 	}
 
-	/**
-	 * 
-	 * 
-	 * @param buffer
-	 * @param folder
-	 * @param fileName
-	 * @return
-	 */
+
 	public static boolean writeFile(byte[] buffer, String folder,
 			String fileName) {
 		boolean writeSucc = false;
@@ -145,24 +115,14 @@ public class FileUtils {
 		return writeSucc;
 	}
 
-	/**
-	 * 根据文件绝对路径获取文件名
-	 * 
-	 * @param filePath
-	 * @return
-	 */
+
 	public static String getFileName(String filePath) {
 		if (null == filePath || "".equals(filePath))
 			return "";
 		return filePath.substring(filePath.lastIndexOf(File.separator) + 1);
 	}
 
-	/**
-	 * 根据文件的绝对路径获取文件名但不包含扩展名
-	 * 
-	 * @param filePath
-	 * @return
-	 */
+
 	public static String getFileNameNoFormat(String filePath) {
 		if (null == filePath || "".equals(filePath)) {
 			return "";
@@ -172,12 +132,7 @@ public class FileUtils {
 				point);
 	}
 
-	/**
-	 * 获取文件扩展名
-	 * 
-	 * @param fileName
-	 * @return
-	 */
+
 	public static String getFileFormat(String fileName) {
 		if (null == fileName || "".equals(fileName))
 			return "";
@@ -186,12 +141,7 @@ public class FileUtils {
 		return fileName.substring(point + 1);
 	}
 
-	/**
-	 * 获取文件大小
-	 * 
-	 * @param filePath
-	 * @return
-	 */
+
 	public static long getFileSize(String filePath) {
 		long size = 0;
 
@@ -202,13 +152,7 @@ public class FileUtils {
 		return size;
 	}
 
-	/**
-	 * 获取文件大小
-	 * 
-	 * @param size
-	 *            字节
-	 * @return
-	 */
+
 	public static String getFileSize(long size) {
 		if (size <= 0)
 			return "0";
@@ -221,12 +165,7 @@ public class FileUtils {
 		}
 	}
 
-	/**
-	 * 转换文件大小
-	 * 
-	 * @param fileS
-	 * @return B/KB/MB/GB
-	 */
+
 	public static String formatFileSize(long fileS) {
 		java.text.DecimalFormat df = new java.text.DecimalFormat("#.00");
 		String fileSizeString = "";
@@ -242,12 +181,7 @@ public class FileUtils {
 		return fileSizeString;
 	}
 
-	/**
-	 * 获取目录文件大小
-	 * 
-	 * @param dir
-	 * @return
-	 */
+
 	public static long getDirSize(File dir) {
 		if (dir == null) {
 			return 0;
@@ -268,12 +202,7 @@ public class FileUtils {
 		return dirSize;
 	}
 
-	/**
-	 * 获取目录文件个数
-	 * 
-	 * @param
-	 * @return
-	 */
+
 	public long getFileList(File dir) {
 		long count = 0;
 		File[] files = dir.listFiles();
@@ -298,12 +227,7 @@ public class FileUtils {
 		return buffer;
 	}
 
-	/**
-	 * 检查文件是否存在
-	 * 
-	 * @param name
-	 * @return
-	 */
+
 	public static boolean checkFileExists(String name) {
 		boolean status;
 		if (!name.equals("")) {
@@ -317,11 +241,7 @@ public class FileUtils {
 
 	}
 
-	/**
-	 * 计算SD卡的剩余空间
-	 * 
-	 * @return 返回-1，说明没有安装sd卡
-	 */
+
 	public static long getFreeDiskSpace() {
 		String status = Environment.getExternalStorageState();
 		long freeSpace = 0;
@@ -341,12 +261,7 @@ public class FileUtils {
 		return (freeSpace);
 	}
 
-	/**
-	 * 新建目录
-	 * 
-	 * @param directoryName
-	 * @return
-	 */
+
 	public static boolean createDirectory(String directoryName) {
 		boolean status;
 		if (!directoryName.equals("")) {
@@ -359,11 +274,7 @@ public class FileUtils {
 		return status;
 	}
 
-	/**
-	 * 检查是否安装SD卡
-	 * 
-	 * @return
-	 */
+
 	public static boolean checkSaveLocationExists() {
 		String sDCardStatus = Environment.getExternalStorageState();
 		boolean status;
@@ -374,12 +285,7 @@ public class FileUtils {
 		return status;
 	}
 
-	/**
-	 * 删除目录(包括：目录里的所有文件)
-	 * 
-	 * @param fileName
-	 * @return
-	 */
+
 	public static boolean deleteDirectory(String fileName) {
 		boolean status;
 		SecurityManager checker = new SecurityManager();
@@ -414,12 +320,7 @@ public class FileUtils {
 		return status;
 	}
 
-	/**
-	 * 删除文件
-	 * 
-	 * @param fileName
-	 * @return
-	 */
+
 	public static boolean deleteFile(String fileName) {
 		boolean status;
 		SecurityManager checker = new SecurityManager();
@@ -445,12 +346,7 @@ public class FileUtils {
 		return status;
 	}
 
-	/**
-	 * @param msgID
-	 * @param log
-	 * @param isLog
-	 * @return
-	 */
+
 	public static String saveLog(String msgID, String log, boolean isLog,
 			String fileName) {
 		if (!isLog) {
@@ -513,7 +409,7 @@ public class FileUtils {
 			}
 			return fileName;
 		} catch (Exception e) {
-			if(d)Log.e(TAG, "an error occured while writing file...", e);
+			if(d)Log.e(TAG, "Ошибка записи...", e);
 		}
 		return null;
 	}
@@ -561,7 +457,6 @@ public class FileUtils {
 			String type, List<File> fs) {
 		listFile(dir, nametxt, type, ext, fs);
 		File[] all = dir.listFiles();
-		// 递归获得当前目录的所有子目录
 		for (int i = 0; i < all.length; i++) {
 			File d = all[i];
 			if (d.isDirectory()) {
@@ -569,22 +464,9 @@ public class FileUtils {
 			}
 		}
 		return null;
-		// 遍历子目,列出每个子目录的文�?
 	}
 
-	/**
-	 * @param dir
-	 *            根目
-	 * @param nametxt
-	 *            文件名中包含的关键字
-	 * @param type
-	 *            文件夹的类型
-	 * @param ext
-	 *            后缀
-	 * @param fs
-	 *            返回的结
-	 * @return
-	 */
+
 	private static List<File> listFile(File dir, String nametxt, String type,
 			String ext, List<File> fs) {
 		File[] all = dir.listFiles(new Fileter(ext));
@@ -640,8 +522,8 @@ public class FileUtils {
 			int bytesum = 0;
 			int byteread = 0;
 			File oldfile = new File(oldPathFile);
-			if (oldfile.exists()) { // 文件存在
-				InputStream inStream = new FileInputStream(oldPathFile); // 读入源文�?
+			if (oldfile.exists()) {
+				InputStream inStream = new FileInputStream(oldPathFile);
 				File n = new File(newPathFile);
 				if (!n.exists()) {
 					n.createNewFile();
@@ -666,11 +548,6 @@ public class FileUtils {
 		delFile(oldPath);
 	}
 
-	/**
-	 * 修改文件权限
-	 * 
-	 * @param file
-	 */
 	public static void modifyFile(File file) {
 		Process process = null;
 		try {

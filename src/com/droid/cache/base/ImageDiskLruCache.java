@@ -12,43 +12,20 @@ import com.droid.cache.util.LogUtil;
 import java.io.*;
 import java.util.Locale;
 
-/**
- * 硬盘缓存.
- *
- * @Title:
- * @Description:
- * @Since:2014-3-5
- * @Version:
- */
+
 public final class ImageDiskLruCache extends DiskLruCache {
-    /**
-     * 日志TAG. *
-     */
+
     private final static String TAG = "ImageDiskLruCache";
 
-    /**
-     * Hint to the compressor, 0-100. 0 meaning compress for small size,
-     * 100 meaning compress for max quality.
-     * Some formats, like PNG which is lossless, will ignore the quality setting
-     */
+
     private int mCompressQuality = 100;
 
-    /**
-     * 构造函数.
-     *
-     * @param cacheDir    缓存文件目录
-     * @param maxByteSize 最大缓存大小
-     */
+
     protected ImageDiskLruCache(File cacheDir, long maxByteSize) {
         super(cacheDir, maxByteSize);
     }
 
-    /**
-     * 打开一个图片硬盘缓存.
-     *
-     * @Description:
-     * @Date 2014-3-6
-     */
+
     public final static ImageDiskLruCache openImageCache(Context context, String cacheName, long maxByteSize) {
         File cacheDir = CacheUtils.getEnabledCacheDir(context, cacheName);
         if (cacheDir.isDirectory() && cacheDir.canWrite() && CacheUtils.getUsableSpace(cacheDir) > maxByteSize) {
@@ -57,14 +34,6 @@ public final class ImageDiskLruCache extends DiskLruCache {
         return null;
     }
 
-    /**
-     * 存入图片.
-     *
-     * @param url    key 关键字
-     * @param bitmap bitmap
-     * @Description:
-     * @Date 2014-3-5
-     */
     public final void putImage(String url, Bitmap bitmap) {
         synchronized (mLinkedHashMap) {
             if (mLinkedHashMap.get(url) == null) {
@@ -78,14 +47,7 @@ public final class ImageDiskLruCache extends DiskLruCache {
         }
     }
 
-    /**
-     * 获取图片.
-     *
-     * @param url key 关键字
-     * @return bitmap
-     * @Description:
-     * @Date 2014-3-5
-     */
+
     public final Bitmap getImage(String url) {
         synchronized (mLinkedHashMap) {
             final String filePath = mLinkedHashMap.get(url);
@@ -104,14 +66,7 @@ public final class ImageDiskLruCache extends DiskLruCache {
         }
     }
 
-    /**
-     * 把bitmap写入到缓存文件中.
-     *
-     * @param bitmap   bitmap
-     * @param filePath 缓存文件路径
-     * @Description:
-     * @Date 2014-3-5
-     */
+
     private boolean writeBitmapToFile(Bitmap bitmap, String filePath, String url) {
         OutputStream outputStream = null;
         try {
@@ -131,12 +86,7 @@ public final class ImageDiskLruCache extends DiskLruCache {
         return false;
     }
 
-    /**
-     * 根据文件类型获得CompressFormat.
-     *
-     * @Description:
-     * @Date 2014-3-7
-     */
+
     private CompressFormat getCompressFormat(String url) {
         String lowerUrl = url.toLowerCase(Locale.ENGLISH);
         if (lowerUrl.endsWith(".jpg")) {

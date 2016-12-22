@@ -316,21 +316,13 @@ public class ApplicationsStackLayout extends ViewGroup implements View.OnClickLi
         return textView;
     }
 
-    /**
-     * Sets the list of favorites.
-     *
-     * @param applications the applications to put in the favorites area
-     */
+
     public void setFavorites(List<ApplicationInfo> applications) {
         mFavorites = applications;
         requestLayout();
     }
 
-    /**
-     * Sets the list of recents.
-     *
-     * @param applications the applications to put in the recents area
-     */
+
     public void setRecents(List<ApplicationInfo> applications) {
         mRecents = applications;
         requestLayout();

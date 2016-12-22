@@ -16,10 +16,6 @@ import android.view.animation.Interpolator;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
-/**
- * 色块高亮布局，但是有焦点问题存在，目前项目没有采用
- *
- */
 
 public class FocusedRelativeLayout extends RelativeLayout implements FocusedBasePositionManager.PositionInterface {
 	public static final String TAG = "FocusedRelativeLayout";

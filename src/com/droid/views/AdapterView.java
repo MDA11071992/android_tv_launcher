@@ -589,7 +589,3 @@ abstract class AdapterView<T extends Adapter> extends android.widget.AdapterView
 	}
 }
 
-/*
- * Location: C:\Users\Administrator\Desktop\AliTvAppSdk.jar Qualified Name:
- * com.yunos.tv.app.widget.AdapterView JD-Core Version: 0.6.2
- */
