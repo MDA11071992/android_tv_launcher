@@ -27,7 +27,7 @@ public class TitleViewUtil {
 		time.setToNow();
 		DateFormat.getDateInstance();
 		Calendar c = Calendar.getInstance();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		String formattedDate = df.format(c.getTime());
 		return formattedDate;
 	}

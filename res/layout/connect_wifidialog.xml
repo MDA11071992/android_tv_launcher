@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:text="WIFI连接"
+        android:text="WIFI"
         android:textColor="#FFFFFF"
         android:id="@+id/dialogtittle"
         />
@@ -25,7 +25,7 @@
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="WIFI名称:"
+            android:text="Имя: "
             android:textColor="#FFFFFF"
             android:textSize="20dp"
             />
@@ -49,7 +49,7 @@
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="WIFI密码:"
+            android:text="Пароль:"
             android:textColor="#FFFFFF"
             android:textSize="20dp"/>
 		<EditText 
@@ -71,7 +71,7 @@
         <Button 
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="取消"
+            android:text="Отмена"
             android:layout_weight="1"
             android:textColor="#FFFFFF"
             android:id="@+id/wifi_dialog_cancel"
@@ -79,7 +79,7 @@
         <Button 
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="连接"
+            android:text="Применить"
             android:id="@+id/wifi_dialog_connect"
             android:layout_weight="1"
             android:textColor="#FFFFFF"

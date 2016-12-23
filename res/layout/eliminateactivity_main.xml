@@ -97,7 +97,7 @@
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/btn_clear_infound"
-        android:text="正在清理"
+        android:text="Очистить"
         android:id="@+id/start_killtask"
         android:textColor="#FFFFFF" />
 

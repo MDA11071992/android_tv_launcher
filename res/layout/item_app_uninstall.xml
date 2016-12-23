@@ -32,7 +32,7 @@
         android:gravity="center"
         android:layout_margin="5dp"
         android:textColor="@color/white"
-        android:text="卸载"
+        android:text="удалить"
         android:textSize="30sp" />
 
 </RelativeLayout>

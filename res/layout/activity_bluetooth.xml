@@ -125,7 +125,7 @@
         android:layout_height="60dp"
         android:gravity="center"
         android:layout_margin="5dp"
-        android:text="可配对的设备"
+        android:text="Доступные устройства"
         android:textColor="@color/white"
         android:layout_below="@id/bluetooth_rl_setting"
         android:layout_alignStart="@id/bluetooth_rl_setting"
@@ -165,7 +165,7 @@
                 android:layout_height="60dp"
                 android:gravity="center"
                 android:layout_margin="8dp"
-                android:text="取消配对"
+                android:text="Отмена"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/white"
                 android:textSize="30sp" />
