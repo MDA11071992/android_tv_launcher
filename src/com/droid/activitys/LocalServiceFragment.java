@@ -2,12 +2,12 @@ package com.droid.activitys;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-
 import com.droid.R;
 import com.droid.application.ClientApplication;
 import com.droid.cache.loader.ImageWorker;
@@ -30,6 +30,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
     private ImageButton news;
     private ImageButton appStore;
     private ImageButton video;
+    private Intent JumpIntent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,9 +79,13 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
     private void showImages() {}
 
     @Override
+
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.local_tv:
+                JumpIntent = new Intent("com.mstar.tv.tvplayer.ui.activitys.MainActivity");
+                JumpIntent.setPackage("com.mstar.tv.tvplayer.ui");
+                startActivity(JumpIntent);
                 break;
             case R.id.local_ad1:
                 break;
@@ -89,6 +94,8 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
             case R.id.local_weather:
                 break;
             case R.id.local_app_store:
+                JumpIntent = new Intent("market://");
+                startActivity(JumpIntent);
                 break;
             case R.id.local_cate:
                 break;
