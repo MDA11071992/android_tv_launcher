@@ -18,8 +18,8 @@
 	<Switch
 			android:layout_width="wrap_content"
 			android:layout_height="50dp"
-			android:textOn="关闭WIFI"
-			android:textOff="打开WIFI"
+			android:textOn="ВКЛ."
+			android:textOff="ВЫКЛ."
 			android:layout_below="@+id/nandb_tittle"
 			android:singleLine="true"
 			android:id="@+id/wifi_switch" android:checked="false"/>

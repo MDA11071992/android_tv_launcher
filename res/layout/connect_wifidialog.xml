@@ -32,7 +32,7 @@
 		<TextView 
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-			android:text="WIFI的名称"
+			android:text="ИМЯ"
 			android:textColor="#FFFFFF"
 			android:textSize="20dp"
 			android:layout_marginLeft="10dp"
@@ -56,7 +56,7 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 			android:textSize="20dp"
-			android:hint="请输入WIFI密码"
+			android:hint="введите пароль"
 			android:password="true"
 			android:singleLine="true"
 			android:layout_marginLeft="10dp"
