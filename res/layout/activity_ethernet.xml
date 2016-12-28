@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="网络不可用，请检查网线是否插好"
+            android:text="Сеть недоступна, проверьте сетевой кабель "
             android:layout_centerHorizontal="true"
             android:layout_margin="50dp"
             android:textColor="@color/gray"
