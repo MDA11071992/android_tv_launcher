@@ -1,8 +1,10 @@
 package com.droid.activitys;
 
+import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,8 +85,8 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.local_tv:
-                JumpIntent = new Intent("com.mstar.tv.tvplayer.ui.activitys.MainActivity");
-                JumpIntent.setPackage("com.mstar.tv.tvplayer.ui");
+                JumpIntent = new Intent("com.mstar.tv.tvplayer.ui.intent.action.SOURCE_INFO");
+                JumpIntent.setComponent(ComponentName.unflattenFromString("com.mstar.tv.tvplayer.ui/.channel.SourceInfoActivity"));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_ad1:
@@ -94,7 +96,8 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
             case R.id.local_weather:
                 break;
             case R.id.local_app_store:
-                JumpIntent = new Intent("market://");
+                JumpIntent = new Intent(Intent.ACTION_VIEW);
+                JumpIntent.setData(Uri.parse("market://search?q=pname:com.rovio.angrybirds" ));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_cate:
@@ -104,7 +107,12 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
             case R.id.local_tour:
                 break;
             case R.id.local_video:
+                JumpIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                JumpIntent.setType("video/*");
+                startActivity(JumpIntent);
                 break;
         }
     }
+
+
 }
