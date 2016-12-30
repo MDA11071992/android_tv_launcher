@@ -109,7 +109,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Результаты теста: скорость сети"
+                    android:text="Результаты теста: скорость сети "
                     android:textColor="#FFFFFF"
                     android:textSize="35sp" />
 
@@ -131,7 +131,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Вы следите за скоростью"
+                    android:text="Скорость соединения позволяет просмотр: "
                     android:textColor="#FFFFFF"
                     android:textSize="30sp" />
 
@@ -148,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#FFFFFF"
-                android:text="ппроверить снова"
+                android:text="Проверить снова"
                 android:textSize="25sp"
                 android:background="@drawable/btn_finishclear"
                 android:layout_gravity="center_horizontal"
