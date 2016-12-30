@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:text="提速"
+                android:text="скорость"
                 android:textColor="#FFFFFF"
                 android:textSize="25dp" />
 
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:text="释放内存"
+                android:text="Освобождение памяти"
                 android:textColor="#FFFFFF"
                 android:textSize="25dp" />
 

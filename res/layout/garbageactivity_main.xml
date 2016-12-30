@@ -3,7 +3,7 @@
     android:layout_width="300dp"
     android:layout_height="250dp"
     android:padding="5dip"
-    tools:context="com.droid.garbageclear.GarbageClear" >
+    tools:context="com.droid.activitys.garbageclear.GarbageClear" >
 
     <RelativeLayout
         android:id="@+id/found_layout"
@@ -110,7 +110,7 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/btn_finishclear"
             android:textSize="20dp"
-            android:text="清理中"
+            android:text="Очистка"
             android:id="@+id/start_clear"/>
     </FrameLayout>
 

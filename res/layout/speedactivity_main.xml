@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kangzizhuang.networkandbluetooth.MainActivity"
+    tools:context="com.droid.activitys.wifi.WifiActivity"
     android:background="@drawable/wifiactivity_bg">
 
     <com.droid.views.TitleView
@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="正在进行网络测速,请稍后..."
+                android:text="Определение скорости сети, пожалуйста, подождите ..."
                 android:textColor="#FFFFFF"
                 android:layout_marginTop="15dp"
                 android:textSize="30sp" />
@@ -83,7 +83,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="停止测速"
+                android:text="Стоп "
                 android:background="@drawable/btn_finishclear"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp"
@@ -109,7 +109,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="本次测速结果:  网速"
+                    android:text="Результаты теста: скорость сети"
                     android:textColor="#FFFFFF"
                     android:textSize="35sp" />
 
@@ -131,14 +131,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="你当前网速适合观看"
+                    android:text="Вы следите за скоростью"
                     android:textColor="#FFFFFF"
                     android:textSize="30sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="高清影片"
+                    android:text="HD видео"
                     android:id="@+id/speed_movietype"
                     android:textSize="30sp"
                     android:textColor="#FFCC22" />
@@ -148,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#FFFFFF"
-                android:text="再次测速"
+                android:text="ппроверить снова"
                 android:textSize="25sp"
                 android:background="@drawable/btn_finishclear"
                 android:layout_gravity="center_horizontal"
