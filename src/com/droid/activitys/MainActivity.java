@@ -295,7 +295,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void getUrlDataFromNetFlow() {
         if (NetWorkUtil.isNetWorkConnected(context)) {
-            //获取数据
             initFragment("");
         } else {
             initFragment("");

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.droid"
+          xmlns:tools="http://schemas.android.com/tools" package="com.droid"
     android:versionCode="17"
     android:versionName="1.9.5">
 
@@ -31,25 +31,20 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.READ_LOGS" />
 
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-
     <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="23" />
+        android:targetSdkVersion="24" />
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:name=".application.ClientApplication"
-        android:label="@string/app_name"
-        android:largeHeap="true"
-        android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:name=".application.ClientApplication"
+            android:label="@string/app_name"
+            android:largeHeap="true"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"
+            tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".activitys.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
