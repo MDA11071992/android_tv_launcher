@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
@@ -360,8 +361,9 @@ public class FileUtils {
 	}
 
 
+	@SuppressLint("LongLogTag")
 	public static String saveLog(String msgID, String log, boolean isLog,
-			String fileName) {
+								 String fileName) {
 		if (!isLog) {
 			return null;
 		}

@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import com.droid.R;
-import com.droid.activitys.app.AppUninstall;
 import com.droid.activitys.app.BrowserActivity;
 import com.droid.application.ClientApplication;
 import com.droid.cache.loader.ImageWorker;
@@ -84,6 +83,10 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
         tour.setOnClickListener(this);
         ad1.setOnClickListener(this);
         ad2.setOnClickListener(this);
+        cate.setOnClickListener(this);
+        weather.setOnClickListener(this);
+        news.setOnClickListener(this);
+        appStore.setOnClickListener(this);
         video.setOnClickListener(this);
 
     }
@@ -100,7 +103,8 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);
                 break;
             case R.id.local_ad1:
-                JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.rdbce.by"));
+                JumpIntent = new Intent(context, BrowserActivity.class);
+                JumpIntent.setData(Uri.parse("http://www.rdbce.by"));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_ad2:
@@ -109,15 +113,25 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);
                 break;
             case R.id.local_weather:
+                JumpIntent = new Intent(context, BrowserActivity.class);
+                JumpIntent.setData(Uri.parse("http://www.gismeteo.ru/"));
                 break;
             case R.id.local_app_store:
+                JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="));
+                startActivity(JumpIntent);
                 break;
             case R.id.local_cate:
+                JumpIntent = new Intent(context, BrowserActivity.class);
+                JumpIntent.setData(Uri.parse("http://studyinrussia.ru/life-in-russia/life-conditions/russian-food/"));
+                startActivity(JumpIntent);
                 break;
             case R.id.local_news:
+                JumpIntent = new Intent(context, BrowserActivity.class);
+                JumpIntent.setData(Uri.parse("http://www.vesti.ru/news"));
                 break;
             case R.id.local_tour:
                 JumpIntent = new Intent(context, BrowserActivity.class);
+                JumpIntent.setData(Uri.parse("http://www.mvideo.ru/"));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_video:

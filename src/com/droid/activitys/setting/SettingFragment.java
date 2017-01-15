@@ -3,7 +3,9 @@ package com.droid.activitys.setting;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +25,8 @@ import com.droid.cache.loader.ImageWorker;
 
 import java.util.List;
 
-public class SettingFragment extends WoDouGameBaseFragment implements
-        View.OnClickListener {
+public class SettingFragment extends WoDouGameBaseFragment implements View.OnClickListener {
+
     private ImageWorker mImageLoader;
     private ImageButton Setting_Clean;// Garbage clean - up
     private ImageButton Setting_Accelerate;// A key to accelerate
@@ -57,7 +59,7 @@ public class SettingFragment extends WoDouGameBaseFragment implements
                 R.layout.fragment_setting, null);
         initView(view);
         setListener();
-        showImages();
+        //showImages(); //crash app
         // Bundle bundle = this.getArguments();
         // String data = bundle.getString("url_data");
         // UIResponseParam uiResponseParam = null;
@@ -147,14 +149,23 @@ public class SettingFragment extends WoDouGameBaseFragment implements
                 startActivity(JumpIntent);
                 break;
             case R.id.setting_about:
+                JumpIntent = new Intent(Settings.ACTION_DEVICE_INFO_SETTINGS);
+                startActivity(JumpIntent);
                 break;
             case R.id.setting_more:
                 JumpIntent = new Intent(Settings.ACTION_SETTINGS);
                 startActivity(JumpIntent);
                 break;
             case R.id.setting_file:
+                String folderPath = Environment.getExternalStorageDirectory()+"/pathTo/folder";
+                JumpIntent = new Intent();
+                JumpIntent.setAction(Intent.ACTION_GET_CONTENT);
+                Uri myUri = Uri.parse(folderPath);
+                JumpIntent.setDataAndType(myUri , "file/*");
+                startActivity(JumpIntent);
                 break;
             case R.id.setting_update:
+                //update
                 break;
             case R.id.setting_net:
                 JumpIntent = new Intent(context, SettingCustom.class);
