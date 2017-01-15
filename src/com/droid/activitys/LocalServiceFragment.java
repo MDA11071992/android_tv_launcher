@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import com.droid.R;
+import com.droid.activitys.app.AppUninstall;
+import com.droid.activitys.app.BrowserActivity;
 import com.droid.application.ClientApplication;
 import com.droid.cache.loader.ImageWorker;
 
@@ -37,13 +39,14 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context = getActivity();
+        context = this.getActivity();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_local_service, null);
         initView(view);
+        setListener();
         return view;
     }
 
@@ -69,13 +72,20 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
         appStore.setOnFocusChangeListener(mFocusChangeListener);
         video.setOnFocusChangeListener(mFocusChangeListener);
 
-        tv.setOnClickListener(this);
-        video.setOnClickListener(this);
-
         tv.setFocusable(true);
         tv.setFocusableInTouchMode(true);
         tv.requestFocus();
         tv.requestFocusFromTouch();
+    }
+
+    private void setListener() {
+
+        tv.setOnClickListener(this);
+        tour.setOnClickListener(this);
+        ad1.setOnClickListener(this);
+        ad2.setOnClickListener(this);
+        video.setOnClickListener(this);
+
     }
 
     private void showImages() {}
@@ -90,24 +100,25 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);
                 break;
             case R.id.local_ad1:
-                JumpIntent = new Intent(context, BrowserActivity.class);
+                JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.rdbce.by"));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_ad2:
+                JumpIntent = new Intent("android.intent.action.MAIN");
+                JumpIntent.setComponent(new ComponentName("com.firsthash.smartyoutubetv", "com.android.browser.BrowserActivity"));
+                startActivity(JumpIntent);
                 break;
             case R.id.local_weather:
                 break;
             case R.id.local_app_store:
-                Uri address = Uri.parse("http://www.mvideo.ru");
-                JumpIntent = new Intent(Intent.ACTION_VIEW, address);
-                startActivity(JumpIntent);
                 break;
             case R.id.local_cate:
                 break;
             case R.id.local_news:
                 break;
             case R.id.local_tour:
-
+                JumpIntent = new Intent(context, BrowserActivity.class);
+                startActivity(JumpIntent);
                 break;
             case R.id.local_video:
                 JumpIntent = new Intent(Intent.ACTION_GET_CONTENT);

@@ -57,6 +57,7 @@ public class SettingFragment extends WoDouGameBaseFragment implements
                 R.layout.fragment_setting, null);
         initView(view);
         setListener();
+        showImages();
         // Bundle bundle = this.getArguments();
         // String data = bundle.getString("url_data");
         // UIResponseParam uiResponseParam = null;

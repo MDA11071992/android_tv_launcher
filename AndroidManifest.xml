@@ -44,18 +44,8 @@
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="http" />
-            </intent-filter>
         </activity>
-        <activity android:label="MyBrowser" android:name=".activitys.BrowserActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <data android:scheme="http"/>
-            </intent-filter>
-        </activity>
+        <activity android:name=".activitys.app.BrowserActivity" />
         <activity android:name=".activitys.Ethernet" />
         <activity android:name=".activitys.Bluetooth" />
         <activity android:name=".activitys.setting.SettingCustom" />
