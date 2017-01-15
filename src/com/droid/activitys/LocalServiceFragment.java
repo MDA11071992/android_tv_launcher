@@ -115,6 +115,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
             case R.id.local_weather:
                 JumpIntent = new Intent(context, BrowserActivity.class);
                 JumpIntent.setData(Uri.parse("http://www.gismeteo.ru/"));
+                startActivity(JumpIntent);
                 break;
             case R.id.local_app_store:
                 JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="));
@@ -128,6 +129,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
             case R.id.local_news:
                 JumpIntent = new Intent(context, BrowserActivity.class);
                 JumpIntent.setData(Uri.parse("http://www.vesti.ru/news"));
+                startActivity(JumpIntent);
                 break;
             case R.id.local_tour:
                 JumpIntent = new Intent(context, BrowserActivity.class);
