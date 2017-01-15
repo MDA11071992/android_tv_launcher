@@ -2,13 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools" package="com.droid"
     android:versionCode="17"
-    android:versionName="1.9.5">
+    android:versionName="1.9.5.16">
+
+    <uses-sdk
+            android:minSdkVersion="19"
+            android:targetSdkVersion="24" />
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -19,24 +22,13 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.READ_LOGS" />
 
-    <uses-sdk
-        android:minSdkVersion="19"
-        android:targetSdkVersion="24" />
     <application
             android:allowBackup="true"
             android:icon="@drawable/ic_launcher"
@@ -45,12 +37,23 @@
             android:largeHeap="true"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activitys.MainActivity">
+        <activity android:label="@string/app_name" android:name=".activitys.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity android:label="MyBrowser" android:name=".activitys.BrowserActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="http"/>
             </intent-filter>
         </activity>
         <activity android:name=".activitys.Ethernet" />
@@ -62,12 +65,11 @@
 
         <service android:name=".service.MainService" />
 
-        <activity
-            android:name=".activitys.eliminateprocess.EliminateMainActivity"
+        <activity android:name=".activitys.eliminateprocess.EliminateMainActivity"
             android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name=".activitys.garbageclear.GarbageClear"
+        <activity android:name=".activitys.garbageclear.GarbageClear"
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".activitys.wifi.WifiActivity" />
+
     </application>
 </manifest>

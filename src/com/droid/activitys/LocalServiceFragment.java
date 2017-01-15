@@ -82,7 +82,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
 
     @Override
 
-    public void onClick(View v) {
+    public void onClick (View v) {
         switch (v.getId()) {
             case R.id.local_tv:
                 JumpIntent = new Intent("com.mstar.tv.tvplayer.ui.intent.action.SOURCE_INFO");
@@ -90,6 +90,8 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);
                 break;
             case R.id.local_ad1:
+                JumpIntent = new Intent(context, BrowserActivity.class);
+                startActivity(JumpIntent);
                 break;
             case R.id.local_ad2:
                 break;
@@ -105,6 +107,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
             case R.id.local_news:
                 break;
             case R.id.local_tour:
+
                 break;
             case R.id.local_video:
                 JumpIntent = new Intent(Intent.ACTION_GET_CONTENT);
