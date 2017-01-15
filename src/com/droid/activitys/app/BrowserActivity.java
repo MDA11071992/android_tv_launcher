@@ -4,12 +4,14 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.droid.R;
 
 public class BrowserActivity extends Activity {
 
-    private WebView mWebView;
+    private WebView webView;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -17,13 +19,21 @@ public class BrowserActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browser);
 
-        mWebView = (WebView) findViewById(R.id.webView);
-        // включаем поддержку JavaScript
-        mWebView.getSettings().setJavaScriptEnabled(true);
-        // указываем страницу загрузки
+        webView = (WebView) findViewById(R.id.webView);
+
+        webView.setFocusable(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setDatabaseEnabled(true);
+        webView.getSettings().setAppCacheEnabled(true);
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+
+
         Uri data = getIntent().getData();
-        mWebView.loadUrl(data.toString());
-        //mWebView.loadUrl("http://www.mvideo.ru/");
+        webView.loadUrl(data.toString());
+
     }
 
 }

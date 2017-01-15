@@ -133,7 +133,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 break;
             case R.id.local_tour:
                 JumpIntent = new Intent(context, BrowserActivity.class);
-                JumpIntent.setData(Uri.parse("http://www.mvideo.ru/"));
+                JumpIntent.setData(Uri.parse("http://www.mvideo.ru/catalog/"));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_video:
