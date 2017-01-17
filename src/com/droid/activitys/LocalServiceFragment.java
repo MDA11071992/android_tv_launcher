@@ -131,10 +131,10 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);
                 break;
             case R.id.local_ad2:
-                //openApplication(getActivity(), "com.firsthash.smartyoutubetv");
-                JumpIntent = new Intent("android.intent.action.MAIN");
+                openApplication(getActivity(), "com.firsthash.smartyoutubetv");
+                /*JumpIntent = new Intent("android.intent.action.MAIN");
                 JumpIntent.setComponent(new ComponentName("com.firsthash.smartyoutubetv", "com.android.browser.BrowserActivity"));
-                startActivity(JumpIntent);
+                startActivity(JumpIntent);*/
                 break;
             case R.id.local_weather:
                 JumpIntent = new Intent(context, BrowserActivity.class);
@@ -147,9 +147,9 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);*/
                 break;
             case R.id.local_cate:
-                openApplication(getActivity(), "ru.ykt.eda");
-                /*JumpIntent = new Intent(context, BrowserActivity.class);
-                JumpIntent.setData(Uri.parse("http://studyinrussia.ru/life-in-russia/life-conditions/russian-food/"));*/
+                //openApplication(getActivity(), "ru.ykt.eda");
+                JumpIntent = new Intent(context, BrowserActivity.class);
+                JumpIntent.setData(Uri.parse("http://studyinrussia.ru/life-in-russia/life-conditions/russian-food/"));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_news:
