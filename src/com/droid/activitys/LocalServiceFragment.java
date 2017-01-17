@@ -1,5 +1,6 @@
 package com.droid.activitys;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
@@ -34,6 +35,9 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
     private ImageButton appStore;
     private ImageButton video;
     private Intent JumpIntent;
+    private Activity activity;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,7 +67,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
 
         tv.setOnFocusChangeListener(mFocusChangeListener);
         tour.setOnFocusChangeListener(mFocusChangeListener);
-        ad1.setOnFocusChangeListener(mFocusChangeListener);
+        //ad1.setOnFocusChangeListener(mFocusChangeListener);
         ad2.setOnFocusChangeListener(mFocusChangeListener);
         cate.setOnFocusChangeListener(mFocusChangeListener);
         weather.setOnFocusChangeListener(mFocusChangeListener);
@@ -93,21 +97,41 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
 
     private void showImages() {}
 
+    private void openApplication(Context context, String id) {
+        JumpIntent = context.getPackageManager().getLaunchIntentForPackage(id);
+
+        if (JumpIntent != null) {
+            startActivity(JumpIntent);
+        }
+
+        else {
+            try {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + id)));
+            }
+            catch (android.content.ActivityNotFoundException anthe) {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/search?q=" + id)));
+            }
+        }
+    }
+
     @Override
 
     public void onClick (View v) {
         switch (v.getId()) {
             case R.id.local_tv:
-                JumpIntent = new Intent("com.mstar.tv.tvplayer.ui.intent.action.SOURCE_INFO");
+                openApplication(getActivity(), "com.mstar.tv.tvplayer.ui");
+                /*JumpIntent = new Intent("com.mstar.tv.tvplayer.ui.intent.action.SOURCE_INFO");
                 JumpIntent.setComponent(ComponentName.unflattenFromString("com.mstar.tv.tvplayer.ui/.channel.SourceInfoActivity"));
-                startActivity(JumpIntent);
+                startActivity(JumpIntent);*/
                 break;
             case R.id.local_ad1:
                 JumpIntent = new Intent(context, BrowserActivity.class);
-                JumpIntent.setData(Uri.parse("http://www.rdbce.by"));
+                JumpIntent.setData(Uri.parse("http://www.worldtimeserver.com/current_time_in_RU-MOW.aspx"));
+                //JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mvideo.ru/catalog/"));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_ad2:
+                //openApplication(getActivity(), "com.firsthash.smartyoutubetv");
                 JumpIntent = new Intent("android.intent.action.MAIN");
                 JumpIntent.setComponent(new ComponentName("com.firsthash.smartyoutubetv", "com.android.browser.BrowserActivity"));
                 startActivity(JumpIntent);
@@ -118,12 +142,14 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);
                 break;
             case R.id.local_app_store:
-                JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="));
-                startActivity(JumpIntent);
+                openApplication(getActivity(), "com.android.vending");
+                /*JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="));
+                startActivity(JumpIntent);*/
                 break;
             case R.id.local_cate:
-                JumpIntent = new Intent(context, BrowserActivity.class);
-                JumpIntent.setData(Uri.parse("http://studyinrussia.ru/life-in-russia/life-conditions/russian-food/"));
+                openApplication(getActivity(), "ru.ykt.eda");
+                /*JumpIntent = new Intent(context, BrowserActivity.class);
+                JumpIntent.setData(Uri.parse("http://studyinrussia.ru/life-in-russia/life-conditions/russian-food/"));*/
                 startActivity(JumpIntent);
                 break;
             case R.id.local_news:
@@ -132,8 +158,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);
                 break;
             case R.id.local_tour:
-                JumpIntent = new Intent(context, BrowserActivity.class);
-                JumpIntent.setData(Uri.parse("http://www.mvideo.ru/catalog/"));
+                JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mvideo.ru/catalog/"));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_video:
