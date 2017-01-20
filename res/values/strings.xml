@@ -47,5 +47,6 @@
     <string name="start_eliminate_process">Start eliminate</string>
     <string name="timing_clear">Timing</string>
     <string name="stop_timing_clear">Stop</string>
+    <string name="textclock">TextClock</string>
 </resources>
 

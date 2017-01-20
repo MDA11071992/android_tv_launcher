@@ -1,7 +1,6 @@
 package com.droid.activitys;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -85,7 +84,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
 
         tv.setOnClickListener(this);
         tour.setOnClickListener(this);
-        ad1.setOnClickListener(this);
+        //ad1.setOnClickListener(this);
         ad2.setOnClickListener(this);
         cate.setOnClickListener(this);
         weather.setOnClickListener(this);
@@ -137,9 +136,10 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);*/
                 break;
             case R.id.local_weather:
-                JumpIntent = new Intent(context, BrowserActivity.class);
+                openApplication(getActivity(), "com.hintsolutions.raintv");
+                /*JumpIntent = new Intent(context, BrowserActivity.class);
                 JumpIntent.setData(Uri.parse("https://www.gismeteo.ru/"));
-                startActivity(JumpIntent);
+                startActivity(JumpIntent);*/
                 break;
             case R.id.local_app_store:
                 openApplication(getActivity(), "com.android.vending");
@@ -147,24 +147,27 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);*/
                 break;
             case R.id.local_cate:
+                openApplication(getActivity(), "ru.ivi.client");
                 //openApplication(getActivity(), "ru.ykt.eda");
-                JumpIntent = new Intent(context, BrowserActivity.class);
+                /*JumpIntent = new Intent(context, BrowserActivity.class);
                 JumpIntent.setData(Uri.parse("http://studyinrussia.ru/life-in-russia/life-conditions/russian-food/"));
-                startActivity(JumpIntent);
+                startActivity(JumpIntent);*/
                 break;
             case R.id.local_news:
-                JumpIntent = new Intent(context, BrowserActivity.class);
+                openApplication(getActivity(), "com.megogo.application");
+                /*JumpIntent = new Intent(context, BrowserActivity.class);
                 JumpIntent.setData(Uri.parse("http://www.vesti.ru/news"));
-                startActivity(JumpIntent);
+                startActivity(JumpIntent);*/
                 break;
             case R.id.local_tour:
                 JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mvideo.ru/catalog/"));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_video:
-                JumpIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                openApplication(getActivity(), "ru.norgen.homevideo");
+                /*JumpIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 JumpIntent.setType("video/*");
-                startActivity(JumpIntent);
+                startActivity(JumpIntent);*/
                 break;
         }
     }

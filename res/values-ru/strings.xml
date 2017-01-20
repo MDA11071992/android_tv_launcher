@@ -25,4 +25,5 @@
     <string name="timing_clear">Отсчёт</string>
     <string name="unit">Единиц</string>
     <string name="surolus_memory">Свободно памяти:</string>
+    <string name="textclock">Часы</string>
 </resources>

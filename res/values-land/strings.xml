@@ -17,5 +17,6 @@
 <resources>
     <!-- Wallpaper -->
     <string name="wallpaper_instructions">Tap image to set landscape wallpaper</string>
+    <string name="textclock">TextClock</string>
 </resources>
 
