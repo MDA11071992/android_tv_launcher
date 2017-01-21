@@ -66,7 +66,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
 
         tv.setOnFocusChangeListener(mFocusChangeListener);
         tour.setOnFocusChangeListener(mFocusChangeListener);
-        //ad1.setOnFocusChangeListener(mFocusChangeListener);
+        ad1.setOnFocusChangeListener(mFocusChangeListener);
         ad2.setOnFocusChangeListener(mFocusChangeListener);
         cate.setOnFocusChangeListener(mFocusChangeListener);
         weather.setOnFocusChangeListener(mFocusChangeListener);
@@ -84,7 +84,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
 
         tv.setOnClickListener(this);
         tour.setOnClickListener(this);
-        //ad1.setOnClickListener(this);
+        ad1.setOnClickListener(this);
         ad2.setOnClickListener(this);
         cate.setOnClickListener(this);
         weather.setOnClickListener(this);
@@ -124,30 +124,29 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);*/
                 break;
             case R.id.local_ad1:
-                JumpIntent = new Intent(context, BrowserActivity.class);
-                JumpIntent.setData(Uri.parse("http://www.worldtimeserver.com/current_time_in_RU-MOW.aspx"));
+                JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.mvideo.ru/vse-akcii"));
                 //JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mvideo.ru/catalog/"));
                 startActivity(JumpIntent);
                 break;
             case R.id.local_ad2:
-                openApplication(getActivity(), "com.firsthash.smartyoutubetv");
+                openApplication(getActivity(), "com.hintsolutions.raintv");
                 /*JumpIntent = new Intent("android.intent.action.MAIN");
                 JumpIntent.setComponent(new ComponentName("com.firsthash.smartyoutubetv", "com.android.browser.BrowserActivity"));
                 startActivity(JumpIntent);*/
                 break;
             case R.id.local_weather:
-                openApplication(getActivity(), "com.hintsolutions.raintv");
+                openApplication(getActivity(), "com.android.browser");
                 /*JumpIntent = new Intent(context, BrowserActivity.class);
                 JumpIntent.setData(Uri.parse("https://www.gismeteo.ru/"));
                 startActivity(JumpIntent);*/
                 break;
             case R.id.local_app_store:
-                openApplication(getActivity(), "com.android.vending");
-                /*JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="));
-                startActivity(JumpIntent);*/
+                //openApplication(getActivity(), "com.android.vending");
+                JumpIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.mvideo.ru/kody-dlya-filmov-i-knig/cifrovye-kody-dlya-filmov-i-knig-3792/f/category=onlain-kinoteatry-smart-tv-3809"));
+                startActivity(JumpIntent);
                 break;
             case R.id.local_cate:
-                openApplication(getActivity(), "ru.ivi.client");
+                openApplication(getActivity(), "com.firsthash.smartyoutubetv");
                 //openApplication(getActivity(), "ru.ykt.eda");
                 /*JumpIntent = new Intent(context, BrowserActivity.class);
                 JumpIntent.setData(Uri.parse("http://studyinrussia.ru/life-in-russia/life-conditions/russian-food/"));
@@ -164,7 +163,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 startActivity(JumpIntent);
                 break;
             case R.id.local_video:
-                openApplication(getActivity(), "ru.norgen.homevideo");
+                openApplication(getActivity(), "ru.ivi.client");
                 /*JumpIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 JumpIntent.setType("video/*");
                 startActivity(JumpIntent);*/

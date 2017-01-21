@@ -31,7 +31,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_red"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -63,7 +63,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_yellow"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -74,7 +74,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -95,7 +95,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_jasper"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -106,7 +106,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -127,7 +127,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_red"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -138,7 +138,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -159,7 +159,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_blue"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -170,7 +170,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -199,7 +199,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_red"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -210,7 +210,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -230,7 +230,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_blue"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -241,7 +241,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -261,7 +261,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_red"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -272,7 +272,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -292,7 +292,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_lawngreen"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -303,7 +303,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -323,7 +323,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_red"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -334,7 +334,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -363,7 +363,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_blue"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -374,7 +374,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -394,7 +394,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_red"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -405,7 +405,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -425,7 +425,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_green"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -436,7 +436,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -456,7 +456,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_red"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -467,7 +467,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -487,7 +487,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/app_yellow"
+                android:background="@drawable/app"
                 android:scaleType="fitCenter" />
 
             <TextView
@@ -498,7 +498,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 

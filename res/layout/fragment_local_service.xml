@@ -34,15 +34,15 @@
             android:scaleType="fitXY" />
 
         <ImageButton
-            android:id="@+id/local_ad1"
-            android:layout_width="366dp"
-            android:layout_height="450dp"
-            android:focusable="false"
-            android:layout_margin="2dp"
-            android:layout_toRightOf="@id/local_tv"
-            android:src="@drawable/local_ad1"
-            android:background="@drawable/sel_focus"
-            android:scaleType="fitXY"/>
+                android:id="@+id/local_ad1"
+                android:layout_width="366dp"
+                android:layout_height="445dp"
+                android:focusable="true"
+                android:layout_toRightOf="@id/local_tv"
+                android:src="@drawable/local_ad1"
+                android:background="@drawable/sel_focus"
+                android:scaleType="fitXY" android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"/>
 
 
         <ImageButton
@@ -110,15 +110,6 @@
             android:src="@drawable/local_video"
             android:background="@drawable/sel_focus"
             android:scaleType="fitXY" />
-        <TextClock
-                android:id="@+id/textClock1"
-                android:layout_width="366dp"
-                android:layout_height="450dp"
-                android:format12Hour="hh:mm"
-                android:format24Hour=" EEEE, dd MMMM"
-                android:text="@string/textclock"
-                android:textSize="36sp" tools:ignore="UnknownId"
-                android:layout_alignTop="@+id/local_ad1" android:layout_toStartOf="@+id/local_cate"/>
 
     </RelativeLayout>
 </LinearLayout>
