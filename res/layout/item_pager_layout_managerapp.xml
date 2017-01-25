@@ -42,7 +42,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -78,7 +78,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -114,7 +114,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -150,7 +150,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -186,7 +186,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -230,7 +230,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -265,7 +265,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -300,7 +300,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -335,7 +335,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -370,7 +370,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -414,7 +414,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -449,7 +449,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -484,7 +484,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -519,7 +519,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ImageView
@@ -554,7 +554,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 
