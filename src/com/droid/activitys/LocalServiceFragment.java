@@ -6,12 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.*;
 import com.droid.R;
-import com.droid.activitys.app.BrowserActivity;
 import com.droid.application.ClientApplication;
 import com.droid.cache.loader.ImageWorker;
 
@@ -113,6 +113,16 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
         }
     }
 
+    private void showToast() {
+        Toast toast = Toast.makeText(context, "\n Купить подписку можно на сайте М.Видео \n", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        LinearLayout toastImage = (LinearLayout) toast.getView();
+        ImageView imageView = new ImageView(context);
+        imageView.setImageResource(R.drawable.local_app_store);
+        toastImage.addView(imageView, 0);
+        toast.show();
+    }
+
     @Override
 
     public void onClick (View v) {
@@ -130,6 +140,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 break;
             case R.id.local_ad2:
                 openApplication(getActivity(), "com.hintsolutions.raintv");
+                showToast();
                 /*JumpIntent = new Intent("android.intent.action.MAIN");
                 JumpIntent.setComponent(new ComponentName("com.firsthash.smartyoutubetv", "com.android.browser.BrowserActivity"));
                 startActivity(JumpIntent);*/
@@ -154,6 +165,7 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 break;
             case R.id.local_news:
                 openApplication(getActivity(), "com.megogo.application");
+                showToast();
                 /*JumpIntent = new Intent(context, BrowserActivity.class);
                 JumpIntent.setData(Uri.parse("http://www.vesti.ru/news"));
                 startActivity(JumpIntent);*/
@@ -164,12 +176,13 @@ public class LocalServiceFragment extends WoDouGameBaseFragment implements View.
                 break;
             case R.id.local_video:
                 openApplication(getActivity(), "ru.ivi.client");
+                showToast();
                 /*JumpIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 JumpIntent.setType("video/*");
                 startActivity(JumpIntent);*/
                 break;
         }
-    }
 
+    }
 
 }
